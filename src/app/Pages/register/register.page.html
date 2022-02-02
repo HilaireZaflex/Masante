@@ -1,9 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<ion-content>
+
+<ion-content fullscreen="true" class="custom-font">
+  <h4>Enregistrement</h4>
+<div class="ion-padding">
+
+  <form class="ion-padding">
+
+    <div class="wrap-input">
+    <input class="input" type="text" name="user-name" placeholder="Nom Complet">
+    </div>
+
+    <div class="wrap-input">
+    <input class="input" type="text" name="user-email" placeholder="Email">
+    </div>
+
+      <div class="wrap-input">
+        <input class="input" type="phone" name="phone" placeholder="Téléphone">
+        </div>
+
+      <div class="wrap-input">
+        <input class="input" type="text" name="addresse" placeholder="Addresse">
+        </div>
+
+    <div class="wrap-input">
+    <input class="input" type="password" name="password" placeholder="Mot de passe">
+    </div> 
+    
+    <div class="row">
+      <input class="col1" type="date" name="date" placeholder="Âge">
+      <div class="col">Sexe
+        <div class="test">
+          <ion-icon name="man-outline"></ion-icon>
+          <ion-icon name="woman-outline"></ion-icon>
+        </div>
+      </div> 
+    </div> 
+
+    <div class="check">
+      <input type="checkbox" />Acceptez de recevoir des rappels
+    </div>
+
+    <div class="container-form-btn">
+      <button class="form-btn custom-font">
+      Valider
+      </button>
+    </div>   
+
+    <p class="ion-text-center custom-font">Avez-vous un compte? <a routerLink="/login">Connectez-vous</a></p>
+	
+
+
+  </form>
+
+</div>
 
 </ion-content>

@@ -1,0 +1,122 @@
+.custom-font {
+    font-family: 'Bai Jamjuree', sans-serif;
+  }
+ 
+   ion-content {
+    --background: #7ab880;
+
+    h4{
+        text-align: center;
+        color: green;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+  
+    .wrap-input {
+      background-color: #4de75f;
+      border-radius: 20px;
+      border: solid green;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.12);
+    }
+
+    .wrap-input:hover{
+        background-color: #7ab880; 
+    }
+
+    .input {
+      display: block;
+      width: 100%;
+      background: transparent;
+     
+      font-size: 13px;
+      line-height: 1.2;
+      border: none;
+      outline: none;
+      height: 25px;
+      padding: 0 20px 0 23px; 
+      color: #117401;
+      font-weight: bold;
+    }
+  
+    .container-form-btn {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .form-btn {
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      padding: 0 10px;
+      min-width: 100px;
+      height: 33px;
+      border: solid green;
+      background-color: #4de75f;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #117401;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      padding-top: 5px;
+      transition: all 0.4s;
+      box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.5);
+    }
+  
+    .form-btn:hover {
+      background-color: #7ab880;
+      box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.8);
+    }
+
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+
+      }
+
+      .check{
+        color: #117401;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .col1 {
+        flex: 1; 
+        padding: 1em;
+        border: solid;
+        height: 30px;
+        padding: 0 20px 0 23px; 
+        color: #117401;
+        font-weight: bold;
+        border-radius: 20px;
+        font-size: 14px;
+        background-color: #4de75f;
+      }
+
+      ion-icon{
+        font-size: 25px;
+    }
+
+      .col {
+        flex: 1; 
+        padding: 1em;
+        border: none;
+        height: 25px;
+        padding: 0 20px 0 23px; 
+        color: #117401;
+        font-weight: bold;
+        margin-bottom: 23px;
+      }
+      
+      p{
+        color: #117401;
+    }
+    a{
+        text-decoration: none;
+        color: #093102;
+        font-weight: bold;
+    }
+
+  }
