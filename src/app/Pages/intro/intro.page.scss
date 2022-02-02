@@ -6,8 +6,8 @@ ion-slide{
     height: 100vh;
     p{
       color: #fff;
-      font-weight:100;
     }
+    
 }
 
 .ion-conatiner{
@@ -19,11 +19,6 @@ ion-slide{
     height: 40vw;
     border: 1px solid rgb(48, 128, 12);
     border-radius: 20vw;
-
-    ion-icon{
-        font-size: 80px;
-        color: rgb(241, 75, 10);
-    }
 }
 ion-footer{
   margin-top: 300px;
@@ -51,9 +46,3 @@ h5{
     background-image: url('../../../assets/img3.png');
     background-size: cover;
   }
-// xcvbnbm
-.over-slider{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
