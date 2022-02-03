@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-suivi',
   templateUrl: './suivi.page.html',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SuiviPage implements OnInit {
 
   constructor() { }
+  
 
   ngOnInit() {
   }

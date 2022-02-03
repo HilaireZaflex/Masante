@@ -1,0 +1,29 @@
+.custom-font {
+    font-family: 'Bai Jamjuree', sans-serif;
+  }
+ 
+   ion-content {
+    
+    --background: #7AB880;
+    text-align: center;
+   
+    h5{
+        color: green;
+        font-weight: bold;
+        margin-top: 100px;
+    }
+    ion-img{
+        height: 60px;
+        margin: 10px;
+    }
+  
+    ion-button{
+        height: max-content;
+        color: #117401;
+    }
+    ion-button:hover{
+        border: solid #117401;
+        border-radius: 10px;
+    }
+
+  }
