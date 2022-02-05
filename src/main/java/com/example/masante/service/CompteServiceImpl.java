@@ -17,6 +17,12 @@ public class CompteServiceImpl implements CompteService{
         this.compteRepository.save(compte);
         return "Compte créer avec success";
     }
+    //mis a jour (modifier) compte
+    @Override
+    public Compte updateCompte(Long id, Compte compte) {
+        return compteRepository.save(compte);
+    }
+
     //Afficher tout les compte
     @Override
     public List<Compte> getAllCompte() {
