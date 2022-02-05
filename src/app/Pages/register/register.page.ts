@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterPage implements OnInit {
 
   constructor() { }
+  custom = {
+    centeredSlides: false,
+    slidesPerView: 4.5,
+  }
 
   ngOnInit() {
   }

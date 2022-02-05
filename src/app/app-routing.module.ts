@@ -27,6 +27,18 @@ const routes: Routes = [
     path: 'suivi',
     loadChildren: () => import('./Pages/suivi/suivi.module').then( m => m.SuiviPageModule)
   },
+  {
+    path: 'accueil',
+    loadChildren: () => import('./Pages/accueil/accueil.module').then( m => m.AccueilPageModule)
+  },
+  {
+    path: 'suivi-tension',
+    loadChildren: () => import('./Pages/suivi-tension/suivi-tension.module').then( m => m.SuiviTensionPageModule)
+  },
+  {
+    path: 'suivi-diabete',
+    loadChildren: () => import('./Pages/suivi-diabete/suivi-diabete.module').then( m => m.SuiviDiabetePageModule)
+  },
 ];
 
 @NgModule({
