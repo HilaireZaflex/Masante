@@ -8,7 +8,17 @@ import { Router } from '@angular/router';
 })
 export class IntroPage implements OnInit {
 
-  constructor(private route : Router) { }
+
+  slideOpts = {
+    initialSlide: 1,
+    speed: 500,
+    loop: true,
+    autoplay: {
+          delay: 3000,
+    }
+  };
+
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }

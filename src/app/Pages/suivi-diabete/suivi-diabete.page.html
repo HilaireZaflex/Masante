@@ -1,0 +1,30 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Diabète</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Evaluation du suivi</h2>
+  <p>Veuillez répondre aux questions suivantes afin d'évaluer votre état</p>
+  <ion-card>
+    <ion-card-content>
+      Quel est le taux de votre de glucose aujourd'hui ?
+    </ion-card-content>
+    <h4><b> <span>{{rangeVal}} mmHg</span> </b></h4>
+    <ion-item>
+      <ion-range [(ngModel)]="rangeVal" min="0" max="200" pin="true">
+        <ion-icon slot="start" size="medium" name="fitness-outline" color="green"></ion-icon>
+        <ion-icon slot="end" size="medium" name="fitness-outline" color="danger"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-card>
+
+  <div class="container-form-btn">
+    <button routerLink="/accueil" class="form-btn custom-font">
+    Suivant
+    </button>
+  </div>  
+
+</ion-content>
