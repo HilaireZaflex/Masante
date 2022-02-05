@@ -1,6 +1,13 @@
+.custom-font {
+  font-family: 'Bai Jamjuree', sans-serif;
+}
 ion-slide{
     flex-direction: column;
     height: 100vh;
+    p{
+      color: #fff;
+    }
+    
 }
 
 .ion-conatiner{
@@ -10,38 +17,28 @@ ion-slide{
     justify-content: center;
     width: 40vw;
     height: 40vw;
-    border: 1px solid rgb(241, 75, 10);
+    border: 1px solid rgb(48, 128, 12);
     border-radius: 20vw;
-
-    ion-icon{
-        font-size: 80px;
-        color: rgb(241, 75, 10);
-    }
 }
-
-ion-button{
+ion-footer{
+  margin-top: 300px;
+  ion-button{
     width: 80vw;
 }
-
-
-h2{
-    text-align: center;
-    color: rgb(241, 52, 4);
-    
+h5{
+  color: #fff;
+}
 }
 
-ion-slides {
-    height: 100%;
-  }
   
   .bg-1 {
     // background-color: #00acc1;
-    background-image: url('../../../assets/img2.png');
+    background-image: url('../../../assets/img1.png');
     background-size: cover;
   }
   .bg-2 {
     // background-color: #fbc02d;
-    background-image: url('../../../assets/img1.png');
+    background-image: url('../../../assets/img2.png');
     background-size: cover;
   }
   .bg-3 {
@@ -49,4 +46,3 @@ ion-slides {
     background-image: url('../../../assets/img3.png');
     background-size: cover;
   }
-
