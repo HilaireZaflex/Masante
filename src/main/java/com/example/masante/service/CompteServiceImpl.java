@@ -30,6 +30,12 @@ public class CompteServiceImpl implements CompteService{
         return compteRepository.findAll();
     }
 
+    @Override
+    public String deleteCompte(Long id) {
+        this.compteRepository.deleteById(id);
+        return "Compte suprimer de la base de donnee";
+    }
+
 
     //@@@@@@@@@@@@requete personnaliser@@@@@@@@@@@@@@@@@@@@@@@@
     //Connexion compte

@@ -9,6 +9,7 @@ public interface CompteService {
     String CreerCompte (Compte compte);     // methode Creation de compte
     Compte updateCompte (Long id, Compte compte);       // methode mise a jour (modifier) compte
     List<Compte> getAllCompte();        // methode afficher tout les comptes
+    public String deleteCompte(Long id); //Suprimer un compte de la base
 
     //@@@@@@@@@@@@@@@@@@@@@@requete personnaliser@@@@@@@@@@@@@@@@@@@@@@@@@@@
     public Compte connexion(Integer mobile, Integer motDePasse); //Authentification

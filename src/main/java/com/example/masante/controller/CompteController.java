@@ -36,6 +36,13 @@ public class CompteController {
         return this.compteService.getAllCompte();
     }
 
+    //Suprimer un compte
+    @DeleteMapping(path = "/suprimer/{id}")
+    public String suprimeCompte(Long id){
+        this.compteService.deleteCompte(id);
+        return "Compte suprimer avec succes!!!";
+    }
+
 
     //@@@@@@@@@@@@requete personnaliser@@@@@@@@@@@@@@@@@@@@@@@@
 
