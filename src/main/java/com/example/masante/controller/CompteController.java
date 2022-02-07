@@ -43,8 +43,14 @@ public class CompteController {
         return "Compte suprimer avec succes!!!";
     }
 
+    //Modifier mot de passe
+    @PutMapping(path = "modifierMotDePasse/{id}")
+    public String modifierMotDePasse(@RequestBody Compte compte,@PathVariable Integer id){
+        this.compteService.modifierMotDePasse(id, compte);
+        return "Mot de passse changer avec succes";
+    }
 
-    //@@@@@@@@@@@@requete personnaliser@@@@@@@@@@@@@@@@@@@@@@@@
+    //-----------------------------requete personnaliser----------------------------
 
 
     //connexion au compte

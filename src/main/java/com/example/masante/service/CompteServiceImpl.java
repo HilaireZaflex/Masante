@@ -30,14 +30,23 @@ public class CompteServiceImpl implements CompteService{
         return compteRepository.findAll();
     }
 
+    //Suprimer un compte
     @Override
     public String deleteCompte(Long id) {
         this.compteRepository.deleteById(id);
         return "Compte suprimer de la base de donnee";
     }
 
+    //Modifier mot de passe
+    @Override
+    public Compte modifierMotDePasse(long id, Compte compte) {
+        Compte compt = compteRepository.findById(id).get();
+        compt.setMotDePasse(compte.getMotDePasse());
+        return compteRepository.save(compt);
+        }
 
-    //@@@@@@@@@@@@requete personnaliser@@@@@@@@@@@@@@@@@@@@@@@@
+
+    //--------------------------------requete personnaliser----------------------------
     //Connexion compte
     @Override
     public Compte connexion(Integer mobile, Integer motDePasse) {
