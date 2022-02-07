@@ -1,6 +1,7 @@
 package com.example.masante.service;
 
 import com.example.masante.entity.Compte;
+import com.example.masante.enumeration.Etat;
 import com.example.masante.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,46 @@ public class CompteServiceImpl implements CompteService{
     @Override
     public List<Compte> getAllCompte() {
         return compteRepository.findAll();
+    }
+
+
+    //@@@@@@@@@@@@requete personnaliser@@@@@@@@@@@@@@@@@@@@@@@@
+    //Connexion compte
+    @Override
+    public Compte connexion(Integer mobile, Integer motDePasse) {
+        Compte connecter = compteRepository.findByMobileAndMotDePasse(mobile,motDePasse);
+        return connecter;
+    }
+
+    //recuperer tout les comptes dont l'etat est Active
+    @Override
+    public List<Compte> getAllCompteActive() {
+        return compteRepository.getAllCompteActive();
+    }
+
+    //recuperer tout les comptes dont l'etat est Inactive
+    @Override
+    public List<Compte> getAllCompteInactive() {
+        return compteRepository.getAllCompteInactive();
+    }
+
+    //recuperer les comptes par id et par etat
+    @Override
+    public Compte getCompteByIdAndEtat(Long id, Etat etat) {
+        return compteRepository.getCompteByIdAndEtat(id, etat);
+    }
+
+    //desactiver un compte
+    @Override
+    public String disableCompte(Long id) {
+        this.compteRepository.disableCompte(id);
+        return "Compte DESACTIVER avec success !!!";
+    }
+
+    //activer un compte
+    @Override
+    public String enableCompte(Long id) {
+        this.compteRepository.enableCompte(id);
+        return "Compte ACTIVER avec success !!!";
     }
 }
