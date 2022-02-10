@@ -4,6 +4,7 @@ import com.example.masante.entity.Compte;
 import com.example.masante.enumeration.Etat;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CompteService {
     String CreerCompte (Compte compte);     // methode Creation de compte

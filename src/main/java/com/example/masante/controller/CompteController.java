@@ -55,10 +55,10 @@ public class CompteController {
 
     //connexion au compte
     @ResponseBody
-    @GetMapping(path = "/connexion/{mobile}/{motDePasse}")
+    @GetMapping( "/connexion")
     public Compte connexion(
-            @PathVariable("mobile") Integer mobile,
-            @PathVariable("motDePasse") Integer motDePasse){
+            @RequestParam Integer mobile,
+            @RequestParam Integer motDePasse){
         return this.compteService.connexion(mobile, motDePasse);
     }
 

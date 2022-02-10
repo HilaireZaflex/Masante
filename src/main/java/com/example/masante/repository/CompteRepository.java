@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @CrossOrigin("*")
 public interface CompteRepository extends JpaRepository <Compte, Long>{
 
-    Compte findByMobileAndMotDePasse(Integer mobile, Integer motDePasse);
+    Optional<Compte> findByMobileAndMotDePasse(Integer mobile, Integer motDePasse);
 
 
     @Query(value = "SELECT compte FROM Compte  compte WHERE compte.etat = 'ACTIVE'")

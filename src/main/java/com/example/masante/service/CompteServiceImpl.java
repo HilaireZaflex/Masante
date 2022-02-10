@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CompteServiceImpl implements CompteService{
     @Autowired
@@ -50,8 +52,8 @@ public class CompteServiceImpl implements CompteService{
     //Connexion compte
     @Override
     public Compte connexion(Integer mobile, Integer motDePasse) {
-        Compte connecter = compteRepository.findByMobileAndMotDePasse(mobile,motDePasse);
-        return connecter;
+        Optional <Compte> connecter = compteRepository.findByMobileAndMotDePasse(mobile,motDePasse);
+        return connecter.get();
     }
 
     //recuperer tout les comptes dont l'etat est Active
