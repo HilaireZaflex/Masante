@@ -8,37 +8,37 @@
         </ion-toolbar>
       </ion-header>
       <ion-content color="primary">
-        <ion-item-divider color="#104215">Mes options</ion-item-divider>
+        <ion-item-divider color="secondary">Mes options</ion-item-divider>
         <ion-list color="primary">
 
-          <ion-item color="green">
+          <ion-item routerLink="/accueil" color="green">
             <ion-icon name="home" slot="start"></ion-icon>
               <ion-label class="my-label-title">Accueil</ion-label>
           </ion-item>
 
-          <ion-item>
+          <ion-item routerLink="/conseil-sante" color="green">
             <ion-icon name="card" slot="start"></ion-icon>
-              <ion-label>Accueil</ion-label>
+              <ion-label>Conseil</ion-label>
           </ion-item>
 
-          <ion-item>
+          <ion-item routerLink="/docteur" color="green">
+            <ion-icon name="medkit-outline" slot="start"></ion-icon>
+              <ion-label>Mon docteur</ion-label>
+          </ion-item>
+
+          <ion-item-divider color="secondary">Mon compte</ion-item-divider>
+          <ion-item routerLink="/profile" color="green">
             <ion-icon name="man" slot="start"></ion-icon>
               <ion-label>Mon profile</ion-label>
           </ion-item>
 
-          <ion-item-divider color="primary">Mon compte</ion-item-divider>
-          <ion-item>
-            <ion-icon name="man" slot="start"></ion-icon>
-              <ion-label>Mon profile</ion-label>
+          <ion-item color="green">
+            <ion-icon name="send-outline" slot="start"></ion-icon>
+              <ion-label>Ma messagérie</ion-label>
           </ion-item>
 
-          <ion-item>
-            <ion-icon name="man" slot="start"></ion-icon>
-              <ion-label>Mon profile</ion-label>
-          </ion-item>
-
-          <ion-item>
-            <ion-icon name="man" slot="start"></ion-icon>
+          <ion-item color="green">
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
             <ion-label>Se déconnecter</ion-label>
           </ion-item>
        

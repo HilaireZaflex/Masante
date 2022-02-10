@@ -6,9 +6,9 @@ import { AccueilPage } from './accueil.page';
 const routes: Routes = [
   {
     path: '',
-    component: AccueilPage
+    component: AccueilPage,
   }
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
