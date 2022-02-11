@@ -22,5 +22,5 @@ public class Maladie {
     private String libelle;
 
     @Column(nullable = false)
-    private Etat etat;
+    private Etat etat = Etat.ACTIVE;
 }

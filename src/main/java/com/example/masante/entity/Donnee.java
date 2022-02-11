@@ -30,4 +30,5 @@ public class Donnee {
 
     @ManyToOne
     private Utilisateur utilisateur;
+
 }
