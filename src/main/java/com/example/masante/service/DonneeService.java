@@ -6,9 +6,9 @@ import com.example.masante.entity.Donnee;
 import java.util.List;
 
 public interface DonneeService {
-    String ajouterDonnee (Donnee donnee);     // methode Creation de compte
-    Donnee updateDonnee (Long id, Donnee donnee);       // methode mise a jour (modifier) compte
-    List<Donnee> getAllDonnee();        // methode afficher tout les comptes
+    String ajouterDonnee (Donnee donnee);     // Ajout de donnee
+    Donnee updateDonnee (Long id, Donnee donnee);       // methode mise a jour (modifier) donnee
+    List<Donnee> getAllDonnee();        // methode afficher tout les donnee
     public Donnee getDonneeById (Long id); // methode afficher donnee par id
-    public String deleteDonnee(Long id); //Suprimer un compte de la base
+    public String deleteDonnee(Long id); //Suprimer un donnee dans la base
 }
