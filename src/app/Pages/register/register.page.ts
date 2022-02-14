@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class RegisterPage implements OnInit {
 
   constructor(private route: Router) { }
+
   custom = {
     centeredSlides: false,
     slidesPerView: 4.5,
