@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
+
   custom = {
     centeredSlides: false,
     slidesPerView: 4.5,
@@ -15,5 +17,12 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
   }
-
+  login(){
+    console.log('button cliquez')
+    this.route.navigate(['login'])
+  }
+  register(){
+    console.log('button cliquez')
+    this.route.navigate(['register'])
+  }
 }
