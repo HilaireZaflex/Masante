@@ -4,7 +4,9 @@
  
    ion-content {
     
-    --background: #7AB880;
+
+    --background: #98c39c;
+
     text-align: center;
    
     h5{
@@ -18,11 +20,16 @@
     }
   
     ion-button{
+
+        --background: #A6EFAE;
         height: max-content;
         color: #117401;
+        border: solid #439237;
+        border-radius: 10px;
     }
     ion-button:hover{
-        border: solid #117401;
+        border: solid #25f505;
+
         border-radius: 10px;
     }
 

@@ -5,39 +5,37 @@
   <h4>Enregistrement</h4>
 <div class="ion-padding">
 
-  <form class="ion-padding">
+  <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)" novalidate autocomplete="nope" class="ion-padding">
 
     <div class="wrap-input">
-    <input class="input" type="text" name="user-name" placeholder="Nom Complet">
+    <input class="input" type="text" name="mobile" placeholder="Nom Complet"  ngModel required autocomplete>
     </div>
 
     <div class="wrap-input">
-    <input class="input" type="text" name="user-email" placeholder="Email">
+    <input class="input" type="text"  name="email" placeholder="Email"  ngModel required autocomplete>
     </div>
 
       <div class="wrap-input">
-        <input class="input" type="phone" name="phone" placeholder="Téléphone">
+        <input class="input" name="phone" type="phone" placeholder="Téléphone"  ngModel required>
         </div>
 
       <div class="wrap-input">
-        <input class="input" type="text" name="addresse" placeholder="Addresse">
+        <input class="input" type="text" placeholder="Addresse" ngModel name="adresse" required>
         </div>
 
+        <div class="wrap-input">
+          <ion-select class="col1" name="type" placeholder="Fonction" ngModel>
+            <ion-select-option value="MEDECIN">médecin</ion-select-option>
+            <ion-select-option value="UTILISATEUR">utilisateur</ion-select-option>
+          </ion-select>
+         </div>
+
     <div class="wrap-input">
-    <input class="input" type="password" name="password" placeholder="Mot de passe">
+    <input class="input" type="password" ngModel name="motDePasse" placeholder="Mot de passe" required >
     </div> 
     
-    <div class="row">
-      <input class="col1" type="date" name="date" placeholder="Âge">
-      <div class="col">Sexe
-        <div class="test">
-          <ion-avatar>
-            <img src="assets/icone1.png">
-          
-            <img src="assets/icone2.png">
-          </ion-avatar>
-        </div>
-      </div> 
+    <div class="wrap-input">
+      <input class="input" type="date" placeholder="Âge" name="age" ngModel>
     </div> 
 
     <div class="check">
@@ -45,7 +43,7 @@
     </div>
 
     <div class="container-form-btn">
-      <button routerLink="/suivi-tension" class="form-btn custom-font">
+      <button type="submit" class="form-btn custom-font">
       Valider
       </button>
     </div>   

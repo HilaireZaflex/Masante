@@ -18,7 +18,6 @@ export class IntroPage implements OnInit {
     }
   };
 
-
   constructor(private route: Router) { }
 
   ngOnInit() {

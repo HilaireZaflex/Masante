@@ -23,10 +23,12 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./Pages/register/register.module').then( m => m.RegisterPageModule)
   },
+
   {
     path: 'suivi',
-    loadChildren: () => import('./Pages/suivi/suivi.module').then( m => m.SuiviPageModule)
+    loadChildren: () => import('./Pages/suivi/suivi.module').then( m => m.SuiviPageModule )
   },
+ 
   {
     path: 'accueil',
     loadChildren: () => import('./Pages/accueil/accueil.module').then( m => m.AccueilPageModule)
@@ -38,6 +40,50 @@ const routes: Routes = [
   {
     path: 'suivi-diabete',
     loadChildren: () => import('./Pages/suivi-diabete/suivi-diabete.module').then( m => m.SuiviDiabetePageModule)
+  },
+  {
+    path: 'docteur',
+    loadChildren: () => import('./Pages/docteur/docteur.module').then( m => m.DocteurPageModule)
+  },
+  {
+    path: 'rappel',
+    loadChildren: () => import('./Pages/rappel/rappel.module').then( m => m.RappelPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./Pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'conseil-sante',
+    loadChildren: () => import('./Pages/conseil-sante/conseil-sante.module').then( m => m.ConseilSantePageModule)
+  },
+  {
+    path: 'conseil-sport',
+    loadChildren: () => import('./Pages/conseil-sport/conseil-sport.module').then( m => m.ConseilSportPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./Pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'pharmacie',
+    loadChildren: () => import('./Pages/pharmacie/pharmacie.module').then( m => m.PharmaciePageModule)
+  },
+  {
+    path: 'manger',
+    loadChildren: () => import('./Pages/manger/manger.module').then( m => m.MangerPageModule)
+  },
+  {
+    path: 'bonne-pratique',
+    loadChildren: () => import('./Pages/bonne-pratique/bonne-pratique.module').then( m => m.BonnePratiquePageModule)
+  },
+  {
+    path: 'clinique',
+    loadChildren: () => import('./Pages/clinique/clinique.module').then( m => m.CliniquePageModule)
+  },
+  {
+    path: 'gestes',
+    loadChildren: () => import('./Pages/gestes/gestes.module').then( m => m.GestesPageModule)
   },
 ];
 

@@ -1,6 +1,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Diabète</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +15,7 @@
     <ion-card-content>
       Quel est le taux de votre de glucose aujourd'hui ?
     </ion-card-content>
-    <h4><b> <span>{{rangeVal}} mmHg</span> </b></h4>
+    <h4><b> <span>{{rangeVal}}</span> mmHg </b></h4>
     <ion-item>
       <ion-range [(ngModel)]="rangeVal" min="0" max="200" pin="true">
         <ion-icon slot="start" size="medium" name="fitness-outline" color="green"></ion-icon>
@@ -22,7 +25,7 @@
   </ion-card>
 
   <div class="container-form-btn">
-    <button routerLink="/accueil" class="form-btn custom-font">
+    <button routerLink="/tabs" class="form-btn custom-font">
     Suivant
     </button>
   </div>  
