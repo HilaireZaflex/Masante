@@ -85,6 +85,26 @@ const routes: Routes = [
     path: 'gestes',
     loadChildren: () => import('./Pages/gestes/gestes.module').then( m => m.GestesPageModule)
   },
+  {
+    path: 'profilephotooption',
+    loadChildren: () => import('./Pages/profilephotooption/profilephotooption.module').then( m => m.ProfilephotooptionPageModule)
+  },
+  {
+    path: 'messages',
+    loadChildren: () => import('./Pages/messages/messages.module').then( m => m.MessagesPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./Pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'liste-diabete',
+    loadChildren: () => import('./Pages/liste-diabete/liste-diabete.module').then( m => m.ListeDiabetePageModule)
+  },
+  {
+    path: 'liste-tension',
+    loadChildren: () => import('./Pages/liste-tension/liste-tension.module').then( m => m.ListeTensionPageModule)
+  },
 ];
 
 @NgModule({

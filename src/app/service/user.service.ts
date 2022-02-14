@@ -15,9 +15,14 @@ export class UserService {
 
   }
 
-  public registerUserFromRemote(compte:any){
-    return this._http.post("http://localhost:8088/masante/api/test/creer", compte);
 
+  public registerUserFromRemote(compte:any){
+    return this._http.post("http://localhost:8088/masante/api/test/creer", compte, {responseType: "text"})
+  }
+
+
+  Register(medecin: any){
+    return this._http.post("localhost:8088/masante/api/test/add/medecin", medecin)
   }
   
 
