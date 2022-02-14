@@ -1,6 +1,8 @@
 package com.example.masante.controller;
 
 import com.example.masante.entity.Compte;
+import com.example.masante.entity.Medecin;
+import com.example.masante.entity.Utilisateur;
 import com.example.masante.enumeration.Etat;
 import com.example.masante.service.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,5 +104,72 @@ public class CompteController {
     }
 
 
+    /**-----------Medecin---------------*/
+
+    //Afficher tout les Medecins
+    @GetMapping(path = "/medecin")
+    public List<Medecin> getAllMedecin(){
+        return this.compteService.getAllMedecin();
+    }
+
+    //recuperer tout les Medecins dont l'etat est Active
+    @GetMapping(path="/medecinActive")
+    public List<Medecin>getAllMedecinActive(){
+        return compteService.getAllMedecinActive();
+    }
+
+    //recuperer tout les Medecins dont l'etat est Inactive
+    @GetMapping(path="/medecinInactive")
+    public List<Medecin>getAllMedecinInactive(){
+        return compteService.getAllMedecinInactive();
+    }
+
+    //recuperer les Medecins par id d'on
+
+        //l'etat est Active
+        @GetMapping(path = "/medecinActive/{id}")
+        public Medecin getMedecinActive(@PathVariable("id")Long id){
+            return compteService.getMedecinByIdAndEtat(id,Etat.ACTIVE);
+        }
+
+        //l'etat est Inactive
+        @GetMapping(path = "/medecinInactive/{id}")
+        public Medecin getMedecinInactive(@PathVariable("id")Long id){
+            return compteService.getMedecinByIdAndEtat(id,Etat.INACTIVE);
+        }
+
+    /**-----------Utilisateur---------------*/
+
+    //Afficher tout les Utilisateurs
+    @GetMapping(path = "/utilisateur")
+    public List<Utilisateur> getAllUtilisateur(){
+        return this.compteService.getAllUtilisateur();
+    }
+
+    //recuperer tout les Utilisateur dont l'etat est Active
+    @GetMapping(path="/utilisateurActive")
+    public List<Utilisateur>getAllUtilisateurActive(){
+        return compteService.getAllUtilisateurActive();
+    }
+
+    //recuperer tout les Utilisateur dont l'etat est Inactive
+    @GetMapping(path="/utilisateurInactive")
+    public List<Utilisateur>getAllUtilisateurInactive(){
+        return compteService.getAllUtilisateurInactive();
+    }
+
+    //recuperer les Utilisateur par id d'on
+
+        //l'etat est Active
+        @GetMapping(path = "/utilisateurActive/{id}")
+        public Utilisateur getUtilisateurActive(@PathVariable("id")Long id){
+            return compteService.getUtilisateurByIdAndEtat(id,Etat.ACTIVE);
+        }
+
+        //l'etat est Inactive
+        @GetMapping(path = "/utilisateurInactive/{id}")
+        public Utilisateur getUtilisateurInactive(@PathVariable("id")Long id){
+            return compteService.getUtilisateurByIdAndEtat(id,Etat.INACTIVE);
+        }
 
 }

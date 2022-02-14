@@ -1,6 +1,8 @@
 package com.example.masante.repository;
 
 import com.example.masante.entity.Compte;
+import com.example.masante.entity.Medecin;
+import com.example.masante.entity.Utilisateur;
 import com.example.masante.enumeration.Etat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -37,5 +39,33 @@ public interface CompteRepository extends JpaRepository <Compte, Long>{
     @Modifying
     @Query(value = "UPDATE Compte SET etat='ACTIVE' WHERE id=:id")
     Void enableCompte(Long id);
+
+    //---------------Medecin----------------//
+    @Query(value = "SELECT med FROM Medecin med")
+    List<Medecin> getAllMedecin();
+
+    @Query(value ="SELECT med FROM Medecin med WHERE med.id = :id AND med.etat =:etat")
+    Medecin getMedecinByIdAndEtat(Long id, Etat etat);
+
+    @Query(value = "SELECT med FROM Medecin med WHERE med.etat = 'ACTIVE'")
+    List<Medecin>getAllMedecinActive();
+
+    @Query( value = "SELECT med FROM Medecin med WHERE med.etat = 'INACTIVE'")
+    List<Medecin>getAllMedecinInactive();
+
+    //---------------Utilisateur---------------//
+    @Query(value = "SELECT user FROM Utilisateur user")
+    List<Utilisateur> getAllUtilisateur();
+
+    @Query(value ="SELECT user FROM Utilisateur user WHERE user.id = :id AND user.etat =:etat")
+    Utilisateur getUtilisateurByIdAndEtat(Long id, Etat etat);
+
+    @Query(value = "SELECT user FROM Utilisateur user WHERE user.etat = 'ACTIVE'")
+    List<Utilisateur>getAllUtilisateurActive();
+
+    @Query( value = "SELECT user FROM Utilisateur user WHERE user.etat = 'INACTIVE'")
+    List<Utilisateur>getAllUtilisateurInactive();
+
+
 
 }

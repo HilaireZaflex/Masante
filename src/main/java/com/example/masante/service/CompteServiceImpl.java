@@ -1,6 +1,8 @@
 package com.example.masante.service;
 
 import com.example.masante.entity.Compte;
+import com.example.masante.entity.Medecin;
+import com.example.masante.entity.Utilisateur;
 import com.example.masante.enumeration.Etat;
 import com.example.masante.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +88,50 @@ public class CompteServiceImpl implements CompteService{
     public String enableCompte(Long id) {
         this.compteRepository.enableCompte(id);
         return "Compte ACTIVER avec success !!!";
+    }
+
+        /**-----------Medecin---------------*/
+    //Afficher tout les Medecins
+    @Override
+    public List<Medecin> getAllMedecin() {
+        return compteRepository.getAllMedecin();
+    }
+
+    @Override
+    public List<Medecin> getAllMedecinActive() {
+        return compteRepository.getAllMedecinActive();
+    }
+
+    @Override
+    public List<Medecin> getAllMedecinInactive() {
+        return compteRepository.getAllMedecinInactive();
+    }
+
+    @Override
+    public Medecin getMedecinByIdAndEtat(Long id, Etat etat) {
+        return compteRepository.getMedecinByIdAndEtat(id, etat);
+    }
+
+    /**-----------Utilisateur---------------*/
+
+    //Afficher tout les Utilisateur
+    @Override
+    public List<Utilisateur> getAllUtilisateur() {
+        return compteRepository.getAllUtilisateur();
+    }
+
+    @Override
+    public List<Utilisateur> getAllUtilisateurActive() {
+        return compteRepository.getAllUtilisateurActive();
+    }
+
+    @Override
+    public List<Utilisateur> getAllUtilisateurInactive() {
+        return compteRepository.getAllUtilisateurInactive();
+    }
+
+    @Override
+    public Utilisateur getUtilisateurByIdAndEtat(Long id, Etat etat) {
+        return compteRepository.getUtilisateurByIdAndEtat(id, etat);
     }
 }
