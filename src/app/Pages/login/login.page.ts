@@ -12,6 +12,7 @@ import { UserService } from 'src/app/service/user.service';
 export class LoginPage implements OnInit {
   user = new User();
   exist : any;
+  type : any;
   constructor(private _service: UserService,   private _router: Router) { }
 
   ngOnInit(): void  {}
@@ -22,10 +23,14 @@ export class LoginPage implements OnInit {
    this._service.loginUserFromRemote(data.value.mobile, data.value.motDePasse).subscribe(
      data => {
        console.log(data);
+       this.type=data;
        this.exist=data;
        if(!data){
          return "n'exixte pas dans la base"
-       }else{
+       }else if (data.Type=="MEDECIN")
+        this._router.navigate(['/dashboard'])
+       else if (data.Type=="UTILISATEUR"){
+         localStorage.setItem('user', JSON.stringify(data));
          this._router.navigate(['/suivi'])
        }
   

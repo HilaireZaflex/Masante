@@ -31,7 +31,13 @@
 }
 
 
+.transparent-modal .modal-wrapper {
+    --background: rgba(44, 39, 45, 0.7);
+}
 
-ion-content, ion-header, ion-card, p, h3, h5, ion-range{
+
+
+ion-content, ion-header, ion-card, p, h3, h5, ion-range, ion-label, ion-item, ion-list,
+.my-container-label{
     font-family: 'Bai Jamjuree';
 }
