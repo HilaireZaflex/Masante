@@ -24,12 +24,13 @@
         </div>
 
         <div class="wrap-input">
-          <ion-select class="col1" ngModel name="Type"  placeholder="Fonction" >
-            <ion-select-option value="MEDECIN">médecin</ion-select-option>
-            <ion-select-option value="UTILISATEUR">utilisateur</ion-select-option>
+          <ion-select #Type class="col1" ngModel name="Type"  placeholder="Fonction" >
+            <ion-select-option value="MEDECIN">MEDECIN</ion-select-option>
+            <ion-select-option value="UTILISATEUR">UTILISATEUR</ion-select-option>
           </ion-select>
          </div>
-         <div class="wrap-input">
+
+         <div class="wrap-input" *ngIf="Type.value==='MEDECIN'">
           <input class="input" type="text" placeholder="specialite" ngModel name="specialite" required>
           </div>
 
