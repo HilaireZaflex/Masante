@@ -2,61 +2,58 @@
 
 
 <ion-content fullscreen="true" class="custom-font">
-  <h4>Enregistrement</h4>
-<div class="ion-padding">
+  
+      
+      <div class="ion-padding">
+        <h4>Enregistrement</h4>
+        <form #user="ngForm" (ngSubmit)="SaveData(user)" novalidate autocomplete="nope" class="ion-padding">
 
-  <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)" novalidate autocomplete="nope" class="ion-padding">
-
-    <div class="wrap-input">
-    <input class="input" type="text" name="nomComplet" placeholder="Nom Complet"  ngModel required autocomplete>
-    </div>
-
-    <div class="wrap-input">
-    <input class="input" type="text"  name="email" placeholder="Email"  ngModel required autocomplete>
-    </div>
-
-      <div class="wrap-input">
-        <input class="input" name="mobile" type="phone" placeholder="Téléphone"  ngModel required>
-        </div>
-
-      <div class="wrap-input">
-        <input class="input" type="text" placeholder="Addresse" ngModel name="adresse" required>
-        </div>
-
-        <div class="wrap-input">
-          <ion-select class="col1" ngModel name="Type"  placeholder="Fonction" >
-            <ion-select-option value="MEDECIN">médecin</ion-select-option>
-            <ion-select-option value="UTILISATEUR">utilisateur</ion-select-option>
-          </ion-select>
-         </div>
-         <div class="wrap-input">
-          <input class="input" type="text" placeholder="specialite" ngModel name="specialite" required>
+          <div class="wrap-input">
+          <input class="input" type="text" name="nomComplet" placeholder="Nom Complet"  ngModel required autocomplete>
           </div>
 
-    <div class="wrap-input">
-    <input class="input" type="password" ngModel name="motDePasse" placeholder="Mot de passe" required >
-    </div> 
-    
-    <div class="wrap-input">
-      <input class="input" type="date" placeholder="Âge" name="age" ngModel>
-    </div> 
+          <div class="wrap-input">
+          <input class="input" type="text"  name="email" placeholder="Email"  ngModel required autocomplete>
+          </div>
 
-    <div class="check">
-      <input type="checkbox" />Acceptez de recevoir des rappels
-    </div>
+            <div class="wrap-input">
+              <ion-select class="col1" name="Type" placeholder="Type de compte"  ngModel required >
+                <ion-select-option value="UTILISATEUR">Utilisateur</ion-select-option>
+                <ion-select-option value="MEDECIN">Medecin</ion-select-option>
+              </ion-select>
+            </div>
+ 
+            <div class="wrap-input">
+              <input class="input" name="mobile" type="phone" placeholder="Téléphone"  ngModel required>
+              </div>
 
-    <div class="container-form-btn">
-      <button type="submit" class="form-btn custom-font">
-      Valider
-      </button>
-    </div>   
+            <div class="wrap-input">
+              <input class="input" type="text" placeholder="Addresse" ngModel name="adresse" required>
+              </div>
+              <div class="wrap-input">
+                  <ion-select class="col1" name="specialite" placeholder="Specialite"  ngModel required >
+                    <ion-select-option value="DIABETOLOGUE">Diabetologue</ion-select-option>
+                    <ion-select-option value="CARDIOLOGUE">Cardiologue</ion-select-option>
+                  </ion-select>
+                </div>
+          <div class="wrap-input">
+          <input class="input" type="password" ngModel name="motDePasse" placeholder="Mot de passe" required >
+          </div> 
+          
+          <div class="wrap-input">
+            <input class="input" type="date" placeholder="Âge" name="age" ngModel>
+          </div> 
 
-    <p class="ion-text-center custom-font">Avez-vous un compte? <a routerLink="/login">Connectez-vous</a></p>
-	
+          <div class="check">
+            <input type="checkbox" />Acceptez de recevoir des rappels
+          </div>
 
-
-  </form>
-
-</div>
-
+          <div class="container-form-btn">
+            <button type="submit" class="form-btn custom-font">
+            Valider
+            </button>
+          </div>   
+          <p class="ion-text-center custom-font">Avez-vous un compte? <a routerLink="/login">Connectez-vous</a></p>
+        </form>
+      </div>
 </ion-content>
