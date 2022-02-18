@@ -1,36 +1,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-
 <ion-content fullscreen="true" class="custom-font">
-  
-      
       <div class="ion-padding">
         <h4>Enregistrement</h4>
         <form #user="ngForm" (ngSubmit)="SaveData(user)" novalidate autocomplete="nope" class="ion-padding">
 
           <div class="wrap-input">
           <input class="input" type="text" name="nomComplet" placeholder="Nom Complet"  ngModel required autocomplete>
-          </div>
+    <div class="wrap-input">
+    <input class="input" type="text"  name="email" placeholder="Email"  ngModel required autocomplete>
+    </div>
+      <div class="wrap-input">
+        <input class="input" name="mobile" type="phone" placeholder="Téléphone"  ngModel required>
+        </div>
 
-          <div class="wrap-input">
-          <input class="input" type="text"  name="email" placeholder="Email"  ngModel required autocomplete>
-          </div>
+      <div class="wrap-input">
+        <input class="input" type="text" placeholder="Addresse" ngModel name="adresse" required>
+        </div>
 
-            <div class="wrap-input">
-              <ion-select class="col1" name="Type" placeholder="Type de compte"  ngModel required >
-                <ion-select-option value="UTILISATEUR">Utilisateur</ion-select-option>
-                <ion-select-option value="MEDECIN">Medecin</ion-select-option>
-              </ion-select>
-            </div>
- 
-            <div class="wrap-input">
-              <input class="input" name="mobile" type="phone" placeholder="Téléphone"  ngModel required>
-              </div>
-
-            <div class="wrap-input">
-              <input class="input" type="text" placeholder="Addresse" ngModel name="adresse" required>
-              </div>
-              <div class="wrap-input">
+        <div class="wrap-input">
+          <ion-select #Type class="col1" ngModel name="Type"  placeholder="Fonction" >
+            <ion-select-option value="MEDECIN">MEDECIN</ion-select-option>
+            <ion-select-option value="UTILISATEUR">UTILISATEUR</ion-select-option>
+          </ion-select>
+         </div>
+              <div class="wrap-input" *ngIf="Type.value==='MEDECIN'">
                   <ion-select class="col1" name="specialite" placeholder="Specialite"  ngModel required >
                     <ion-select-option value="DIABETOLOGUE">Diabetologue</ion-select-option>
                     <ion-select-option value="CARDIOLOGUE">Cardiologue</ion-select-option>
