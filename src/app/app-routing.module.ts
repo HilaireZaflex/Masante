@@ -105,6 +105,10 @@ const routes: Routes = [
     path: 'liste-tension',
     loadChildren: () => import('./Pages/liste-tension/liste-tension.module').then( m => m.ListeTensionPageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./Pages/menu/menu.module').then( m => m.MenuPageModule)
+  },
 ];
 
 @NgModule({
