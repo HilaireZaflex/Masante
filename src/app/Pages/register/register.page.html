@@ -5,55 +5,110 @@
   <h4>Enregistrement</h4>
 <div class="ion-padding">
 
-  <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)" novalidate autocomplete="nope" class="ion-padding">
+  <form #registerForm="ngForm" [formGroup]="validations_form" (ngSubmit)="registerUser(registerForm)" novalidate autocomplete="nope" class="ion-padding">
 
     <div class="wrap-input">
-    <input class="input" type="text" name="nomComplet" placeholder="Nom Complet"  ngModel required autocomplete>
+    <input class="input" type="text" formControlName="name" name="nomComplet" placeholder="Nom Complet"  ngModel required autocomplete>
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div class="error-message"
+          *ngIf="validations_form.get('name').hasError(validation.type) && (validations_form.get('name').dirty || validations_form.get('name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
     </div>
 
     <div class="wrap-input">
-    <input class="input" type="text"  name="email" placeholder="Email"  ngModel required autocomplete>
+    <input class="input" type="text" formControlName="email" name="email" placeholder="Email"  ngModel required autocomplete>
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
     </div>
 
       <div class="wrap-input">
-        <input class="input" name="mobile" type="phone" placeholder="Téléphone"  ngModel required>
-        </div>
+        <input class="input" name="mobile" formControlName="phone" type="phone" placeholder="Téléphone"  ngModel required>
+      </div>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.phone">
+          <div class="error-message"
+            *ngIf="validations_form.get('phone').hasError(validation.type) && (validations_form.get('phone').dirty || validations_form.get('phone').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
 
       <div class="wrap-input">
-        <input class="input" type="text" placeholder="Addresse" ngModel name="adresse" required>
-        </div>
+        <input class="input" type="text" formControlName="address" placeholder="Addresse" ngModel name="adresse" required>
+      </div>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.address">
+          <div class="error-message"
+            *ngIf="validations_form.get('address').hasError(validation.type) && (validations_form.get('address').dirty || validations_form.get('address').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
 
         <div class="wrap-input">
-          <ion-select #Type class="col1" ngModel name="Type"  placeholder="Fonction" >
+          <ion-select #Type class="col1" formControlName="fonction" ngModel name="Type"  placeholder="Fonction" >
             <ion-select-option value="MEDECIN">MEDECIN</ion-select-option>
             <ion-select-option value="UTILISATEUR">UTILISATEUR</ion-select-option>
           </ion-select>
          </div>
-
          <div class="wrap-input" *ngIf="Type.value==='MEDECIN'">
           <input class="input" type="text" placeholder="specialite" ngModel name="specialite" required>
           </div>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.fonction">
+              <div class="error-message"
+                *ngIf="validations_form.get('fonction').hasError(validation.type) && (validations_form.get('fonction').dirty || validations_form.get('fonction').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
 
-    <div class="wrap-input">
-    <input class="input" type="password" ngModel name="motDePasse" placeholder="Mot de passe" required >
-    </div> 
-    
-    <div class="wrap-input">
-      <input class="input" type="date" placeholder="Âge" name="age" ngModel>
-    </div> 
+          <div class="wrap-input">
+            <input class="input" type="date" formControlName="age" placeholder="Âge" name="age" ngModel>
+          </div> 
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.age">
+              <div class="error-message"
+                *ngIf="validations_form.get('age').hasError(validation.type) && (validations_form.get('age').dirty || validations_form.get('age').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div>
+      
+          <div class="wrap-input">
+          <input class="input" type="password" formControlName="password" ngModel name="motDePasse" placeholder="Mot de passe" required >
+          </div>
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="error-message"
+                *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </div> 
+          
+          <div class="check">
+            <input type="checkbox" />Acceptez de recevoir des rappels
+          </div>
 
-    <div class="check">
-      <input type="checkbox" />Acceptez de recevoir des rappels
-    </div>
+          <div class="container-form-btn">
+            <button type="submit" [disabled]="!validations_form.valid" class="form-btn custom-font">
+            Valider
+            </button>
+          </div>   
 
-    <div class="container-form-btn">
-      <button type="submit" class="form-btn custom-font">
-      Valider
-      </button>
-    </div>   
-
-    <p class="ion-text-center custom-font">Avez-vous un compte? <a routerLink="/login">Connectez-vous</a></p>
-	
+          <p class="ion-text-center custom-font">Avez-vous un compte? <a routerLink="/login">Connectez-vous</a></p>
+        
 
 
   </form>

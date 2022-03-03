@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +15,17 @@ export class AppComponent {
     {title: 'Profile', url: '/profile', icon: 'person'},
     {title: 'Se déconnecter', url: '', icon: 'log-out', route: true},
   ];
-  constructor() {}
+  app: any;
+  constructor(
+    public router : Router,
+    public menu : MenuController,
+  ) {}
+
 
   signOut() {
-    console.log('signout');
-    
+    localStorage.clear();
+    this.router.navigateByUrl('/');
+
   }
 }
+

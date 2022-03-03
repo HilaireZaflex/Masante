@@ -1,11 +1,32 @@
 
 <ion-content>
-  <h5>Choix du suivi</h5>
-      <p style="color: #117401;">Veuillez choisir une option <br> suivante pour suivre l’état <br> de santé des utilisateurs</p>
-    <ion-button routerLink="/liste-diabete">
-      <ion-img src="../../assets/glucometer.png"></ion-img> <p><strong>Diabète</strong> <br> Analysez votre bilan</p> 
-    </ion-button>
-    <ion-button routerLink="/liste-tension">
-      <ion-img src="../../assets/tensiometer.png"></ion-img> <p><strong>Tension</strong> <br> Analysez votre bilan</p> 
-    </ion-button>
+  <h5>Mes patients</h5>
+  <button routerLink="/accueilmedecin" class="form-btn1">
+    Ajouter un Patient
+   </button>  
+    <ion-item>
+        <ion-label>
+          <span>
+          <h3><b> Nom Prenom</b></h3>
+          <p> <b>Address:</b>Sotuba</p>
+          <p> <b>Contact:</b>83092295</p>
+        </span>
+          <button (click)="showAlert()" class="form-btn">
+            Bilan Patient
+           </button>
+        </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <span>
+        <h3><b> Nom Prenom</b></h3>
+        <p> <b>Address:</b>Sotuba</p>
+        <p> <b>Contact:</b>83092295</p>
+      </span>
+        <button (click)="showAlert()" class="form-btn">
+          Bilan Patient
+         </button>
+      </ion-label>
+  </ion-item>
 </ion-content>

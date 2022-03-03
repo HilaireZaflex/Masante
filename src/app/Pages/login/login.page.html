@@ -4,15 +4,31 @@
 <div class="ion-padding">
   <ion-img src="../../assets/logo.png"></ion-img>
 
-  <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)" novalidate autocomplete="nope" class="ion-padding">
+  <form #loginForm="ngForm" [formGroup]="validations_form" (ngSubmit)="loginUser(loginForm)" novalidate autocomplete="nope" class="ion-padding">
 
     <div class="wrap-input">
-    <input class="input" type="text" name="mobile" placeholder="Email ou Téléphone" ngModel required autocomplete>
+    <input class="input" formControlName="telephone" type="text" name="mobile" placeholder="Email ou Téléphone" ngModel required autocomplete>
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.telephone">
+        <div class="error-message"
+          *ngIf="validations_form.get('telephone').hasError(validation.type) && (validations_form.get('telephone').dirty || validations_form.get('telephone').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
     </div>
 
     <div class="wrap-input">
-    <input class="input" type="password"  name="motDePasse" placeholder="Mot de passe" ngModel required>
+    <input class="input" type="password" formControlName="password"  name="motDePasse" placeholder="Mot de passe" ngModel required>
     </div> 
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
 
     <p class="custom-font"> 
       <a routerLink="/register">Mot de passe oublié?</a>

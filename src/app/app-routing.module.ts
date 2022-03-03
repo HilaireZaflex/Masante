@@ -109,6 +109,10 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./Pages/menu/menu.module').then( m => m.MenuPageModule)
   },
+  {
+    path: 'accueilmedecin',
+    loadChildren: () => import('./Pages/accueilmedecin/accueilmedecin.module').then( m => m.AccueilmedecinPageModule)
+  },
 ];
 
 @NgModule({

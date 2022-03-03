@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
@@ -10,12 +10,44 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  validations_form: FormGroup;
+  errorMessage: string = '';
   user = new User();
   exist : any;
   type : any;
-  constructor(private _service: UserService,   private _router: Router) { }
+  constructor(
+       private _service: UserService,
+       private _router: Router,
+       private formBuilder: FormBuilder
+       ) { }
 
-  ngOnInit(): void  {}
+  ngOnInit(): void  {
+    this.validations_form = this.formBuilder.group({
+      telephone: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[0-9]{8}$')
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.minLength(5),
+        Validators.required
+      ])),
+    });
+  }
+
+  validation_messages = {
+    'telephone': [
+      { type: 'required', message: 'le numéro est obligatoire.'},
+      { type: 'pattern', message: 'Veuillez entrer un numéro valide.'}
+    ],
+    'password': [
+      { type: 'required', message: 'le mot de passe est obligatoire.' },
+      { type: 'minlength', message: 'le mot de passe doit contenir au moins 5 caractères.' }
+    ]
+  };
+
+
+
+
 
  loginUser(data: any){
   console.log("this user=====",data.value);
