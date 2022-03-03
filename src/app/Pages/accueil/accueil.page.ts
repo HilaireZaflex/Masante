@@ -11,13 +11,19 @@ import { User } from 'src/app/user';
 export class AccueilPage implements OnInit {
   public users: User[];
   InfoUser: any;
+  dernierDonneee : any;
   
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     
     this.InfoUser=JSON.parse(localStorage.getItem('user'));
-    console.log(this.InfoUser)
+    console.log(this.InfoUser);
+
+    this.userService.resultat().subscribe((data:any)=>{
+      this.dernierDonneee = data;
+      console.log(data);
+    })
   }
   
   

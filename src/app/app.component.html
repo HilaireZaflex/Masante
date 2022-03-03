@@ -15,7 +15,8 @@
                 </div>
             </ion-list>
 
-            <ion-menu-toggle class="menu-items" [autHide]="false" 
+            <!-- [autHide]="false" -->
+            <ion-menu-toggle class="menu-items" 
             *ngFor="let page of pages; let i = index">
                 <ion-item
                 *ngIf="!page?.route"
@@ -35,7 +36,7 @@
                  class="ion-padding-start"
                  lines="none"
                  detail="false"
-                 (click)="signOut()">
+                 >
                  <ion-icon slot="start" [ios]="page.icon + '-outline'" [md]="page.icon + '-sharp'"></ion-icon>
                  <ion-label>{{page.title}}</ion-label>
                 </ion-item>

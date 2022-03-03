@@ -54,6 +54,14 @@ calculDiabete(data:any):Observable<any>{
   console.log(data);
   return this._http.post(this.url+"/calculDiabete",data, {responseType: "text"});
 }
+
+//-------------ALgo Resultat-----------------------
+resultat():Observable<any>{
+  console.log();
+  return this._http.get(this.url+"/dernierDonnee")
+}
+
+
 //--------------////////---------------------
 
   // login2(mobile :String,motDePasse : String){

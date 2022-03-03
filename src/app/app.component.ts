@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public pages: any[] = [
-    {title: 'Accueil', url: '/accueil', icon: 'home'},
+    {title: 'Accueil', url: '/tabs', icon: 'home'},
     {title: 'Docteur', url: '/docteur', icon: 'document-lock'},
     {title: 'Conseil', url: '/conseil-sante', icon: 'information-circle'},
     {title: 'Profile', url: '/profile', icon: 'person'},

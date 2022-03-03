@@ -9,7 +9,7 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  subjects;
+  subjects: ({ name: string; img?: undefined; } | { img: string; name: string; })[];
   public users: User[];
   InfoUser: any;
 
