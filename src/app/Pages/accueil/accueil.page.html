@@ -2,40 +2,75 @@
 <ion-header>
   <ion-toolbar>
     <ion-menu-button menuId="custom-menu" slot="start"></ion-menu-button>
-    <ion-title>accueil</ion-title>
+    <div class="container headd" routerLink="/profile" >
+      <div class="row" style="display: flex;">
+        <div class="col a" ><h3>{{InfoUser.nomComplet}}</h3></div>
+        <div class="col"><ion-img src="../../../assets/iconImage/account.png"></ion-img></div>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class=".custom-font ">
-  <br>
-  <br>
-  <br>
-  <ion-card >
-    <ion-card-header>
-      <ion-card-title>{{InfoUser.nomComplet}}</ion-card-title>
-      <ion-card-subtitle>Etat du {{maladies}}</ion-card-subtitle>
-    </ion-card-header>
-    <br>
-    
-    <ion-item>
-      <ion-label>Etat actuel</ion-label>
-      <ion-badge color="danger" slot="end">Urgence</ion-badge>
-    </ion-item>
-    <ion-card-content>
-      <h3>{{resultat}}</h3>
-      <p>Veuillez consulter un médecin dans un bref délai</p> 
-    </ion-card-content>
-  </ion-card>
+  <!-- ================================== -->
+  <div class="container etat">
+    <div class="row bare">
+      
+    </div>
+    <p class="suivie"> <span>Suivie : </span> <strong>{{maladies}}</strong></p>
+    <h4>Etat actuel</h4> 
+    <div class="row">
+      <div class="col">
+      <h3>{{resultat}}</h3> 
 
-  <div class="container-form-btn">
-    <button routerLink="/docteur" class="form-btn custom-font">
-     mon docteur
-    </button>
-    
-    <button routerLink="/suivi" class="form-btn custom-font">
-    ajouter données
-    </button>
-  </div> 
+      </div>
+      <div class="col">
+        <h4>Couleur</h4> 
+      </div>
+    </div>
+    <div class="row message">
+      <p>Veuillez consulter un médecin <br> dans un bref délai</p>
+    </div>
+    </div>
+  <!-- ================================= -->
+  <div class="container">
+
+    <!-- premier bloc -->
+    <div class="row">
+      <div class="col-sm">
+        <ion-card title="Ajouter une Donnée" routerLink="/" >
+          <ion-img src="../../assets/iconImage/plus.png"></ion-img>
+          <p>Ajouter</p>
+        </ion-card>
+      </div>
+
+    <div class="col-sm">
+      <ion-card title="Mes Donnée" routerLink="/">
+        <ion-img src="../../assets/iconImage/database.png"></ion-img>
+        <p>Données</p>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- deuxieme bloc -->
+  <div class="row">
+    <div class="col-sm">
+      <ion-card title="Les Conseils Médicals" routerLink="/conseil-sante" >
+        <ion-img src="../../assets/iconImage/pharmacy.png"></ion-img>
+        <p>Conseils</p>
+      </ion-card>
+    </div>
+
+  <div class="col-sm">
+    <ion-card title="Mes Médecins" routerLink="/docteur">
+      <ion-img src="../../assets/iconImage/doctor.png"></ion-img>
+      <p>Médecins</p>
+    </ion-card>
+  </div>
+</div>
+
+</div>
+  <!-- ================================== -->
 </ion-content>
 
 
