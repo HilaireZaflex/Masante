@@ -1,29 +1,28 @@
 ion-menu ion-content{
-    --background:var(--ion-item-background, var(--ion-background-color, var(--ion-color-primary)));
     .main-header{
         height: 25vh;
         width: 120%;
-        background: linear-gradient(90deg, var(--ion-color-tertiary) 0%, var(--ion-color-secondary) 100%);
-        box-shadow: 0 1px 10px var(--ion-color-light);
+        background:#1D5F24 ;
+        box-shadow: 0 1px 10px #000;
         border-radius: 0 0 50% 50%;
         margin-left: -4.5vh;
+        margin-bottom: 10px;
         div{
             transform: translateY(3vh);
             ion-avatar{
                 width: 10vh;
                 height: 10vh;
-                background: var(--ion-color-primary);
+                background: #fff;
                 margin-bottom: 5px;
-                border: 7px solid var(--ion-color-primary);
+                border: 7px solid #fff;
             }
             ion-label{
-                font-weight: bold;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 color: #fff;
                 p{
                     margin-top: 3px;
                     ion-text{
-                        font-size: 0.7rem;
+                        font-size: 1rem;
                         color: #fff;
                     }
                 }
@@ -34,15 +33,49 @@ ion-menu ion-content{
     .menu-items {
         padding-left: 20px;
         ion-item.selected{
-            --background: rgba(var(--ion-color-primary-rgba), 0.14);
-            border-left: 5px solid var(--ion-color-tertiary);
+            border-left: 5px solid #1D5F24;
+            border-right: 5px solid #1D5F24;
+            border-radius: 50px;
+
+        }
+        
+        ion-item{
+        
+            margin-bottom: -5px;
+            margin-top: -15px;
             ion-label{
-                color: var(--ion-color-tertiary);
+                color: #1D5F24;
+                font-size: 1.2rem;
+            }
+            ion-img{
+                color: #1D5F24;
+                height: 2rem;
+                margin-right: 15px;
+            }
+            
+        }
+        .bas{
+            margin-top: 8em;
+            cursor: pointer;
+            ion-label{
+                color: rgb(255, 0, 0);
                 font-weight: bold;
             }
         }
-        ion-item.selected ion-icon{
-            color: var(--ion-color-tertiary);
+    }
+  
+}
+ion-footer{
+    ion-toolbar{
+        background: #1D5F24;
+        ion-item{
+            ion-label{
+                color: #fff;
+            }
+            ion-icon{
+                color: #fff;
+                
+            }
         }
     }
 }
