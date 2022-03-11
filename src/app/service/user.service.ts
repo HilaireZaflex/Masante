@@ -30,21 +30,18 @@ export class UserService {
 //--------------creation de compte-------------
 
 creerCompte(data:any):Observable<any>{
-  console.log(data);
   return this._http.post(this.url+"/creer",data, {responseType: "text"});
 }
 
 //------------------Algo--------------------------
 
 calculDonnee(data:any):Observable<any>{
-  console.log(data);
   return this._http.post(this.url+"/calculDonnee",data);
 }
 
 //-------------Calcul Tension-----------------------
 
 calculTension(data:any):Observable<any>{
-  console.log(data);
   return this._http.post(this.url+"/calculTension",data, {responseType: "text"});
 }
 
@@ -57,8 +54,13 @@ calculDiabete(data:any):Observable<any>{
 
 //-------------ALgo Resultat-----------------------
 resultat():Observable<any>{
-  console.log();
-  return this._http.get(this.url+"/dernierDonnee")
+  return this._http.get(this.url+"/dernierDonnee/")
+}
+
+//-------------User ALgo Resultat-----------------------
+
+userData(id:any):Observable<any>{
+return this._http.get(this.url+"/donneeByUser/"+id,{responseType: "text"})
 }
 
 

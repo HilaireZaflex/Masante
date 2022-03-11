@@ -18,11 +18,8 @@ export class LoginPage implements OnInit {
   ngOnInit(): void  {}
 
  loginUser(data: any){
-  console.log("this user=====",data.value);
- 
    this._service.loginUserFromRemote(data.value.mobile, data.value.motDePasse).subscribe(
      data => {
-       console.log(data);
        this.type=data;
        this.exist=data;
        if(!data){

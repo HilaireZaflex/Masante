@@ -1,5 +1,9 @@
 .custom-font {
     font-family: 'Bai Jamjuree', sans-serif;
+    margin-top: 5px;
+    a{
+      font-size: 13px;
+    }
   }
  
    ion-content {
@@ -7,25 +11,22 @@
         text-align: center;
         color: #117401;
         font-weight: bold;
-        margin-top: 40px;
+        margin-top: 10px;
        }
        ion-img{
-           height: 128px;
+         margin-top: 10px;
+         height: 128px;
 
        }
-    --background: #8bbe90;
   
     .wrap-input {
-        margin-top: 20px;
-      background-color: #71e47f;
+      margin-top: 15px;
       border-radius: 18px;
-      border: solid rgb(63, 141, 63);
-      margin-bottom: 15px;
+      border: solid #1D5F24;
       box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.12);
     }
 
     .wrap-input:hover{
-        background-color: #7AB880;
         box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.8);  
     }
 
@@ -33,14 +34,12 @@
       display: block;
       width: 100%;
       background: transparent;
-     
-      font-size: 13px;
+      font-size: 16px;
       line-height: 1.2;
       border: none;
       outline: none;
       height: 35px;
       padding: 0 20px 0 23px; 
-      color: #117401;
       font-weight: bold;
     }
   
@@ -53,36 +52,30 @@
       display: flex;
       justify-content: center;
       align-items:center;
-      padding: 0 10px;
-      min-width: 100px;
-      height: 35px;
-      background-color: #71e47f;
+      height: 40px;
+      width: 17em;
+      background-color: #1D5F24;
       border-radius: 18px;
       font-size: 14px;
-      color: #117401;
+      color: #fff;
       font-weight: bold;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      padding-top: 5px;
-      border: solid rgb(63, 141, 63);
+      margin-bottom: 10px;
       transition: all 0.4s;
       box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.5);
     }
   
     .form-btn:hover {
-      background-color: #7AB880;
-    //   color: #fff;
+      background-color: #114e17;
       box-shadow: 0 10px 30px 0px rgba(57, 71, 82, 0.8);
     }
 
     a{
         text-decoration: none;
-        color: #117401;
+        color: #1D5F24;
         font-weight: bold;
     }
     p{
         font-size: 14px;
-        color:#A6EFAE ;
     }
 
   }

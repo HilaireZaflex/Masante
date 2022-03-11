@@ -5,6 +5,7 @@ export class Donnee {
     unite:any;
     malad:any;
     resultat:any;
+    utilisateur:any;
 
 constructor(){}
 }

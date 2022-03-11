@@ -19,6 +19,7 @@ export class SuiviDiabetePage implements OnInit {
     valeurC:any;
     unite:any;
     diabete:any;
+    user:any;
 
   constructor(
     public platform: Platform,
@@ -32,11 +33,14 @@ export class SuiviDiabetePage implements OnInit {
     this.platform.ready().then(()=>{
       this.rangeValu = "0.7"
     })
+
+    this.user = localStorage.getItem('user');
+    console.log("salut mali",this.user)
   }
 
   ngOnInit() {}
-
   async calculD(forms:NgForm){
+
 
     this.valeurA=forms.value['valeurA'];
     this.valeurC=forms.value['valeurC'];
@@ -46,10 +50,11 @@ export class SuiviDiabetePage implements OnInit {
     this.donnee.valeurA=this.valeurA;
     this.donnee.valeurC=this.valeurC;
     this.donnee.unite=this.unite;
-   
+    this.donnee.utilisateur=JSON.parse(this.user);
+
     this.service.calculDiabete(this.donnee).subscribe((data:any)=>{
       this.diabete=data;
-      console.log("votre resuta"+ data)
+      // console.log("votre resuta"+ data)
       this.router.navigate(['tabs'])
     })
     

@@ -10,10 +10,10 @@
   <br>
   <br>
   <br>
-  <ion-card *ngFor=" let item of dernierDonneee">
+  <ion-card >
     <ion-card-header>
       <ion-card-title>{{InfoUser.nomComplet}}</ion-card-title>
-      <ion-card-subtitle>Etat du {{item.maladies}}</ion-card-subtitle>
+      <ion-card-subtitle>Etat du {{maladies}}</ion-card-subtitle>
     </ion-card-header>
     <br>
     
@@ -22,7 +22,7 @@
       <ion-badge color="danger" slot="end">Urgence</ion-badge>
     </ion-item>
     <ion-card-content>
-      <h3>{{item.resultat}}</h3>
+      <h3>{{resultat}}</h3>
       <p>Veuillez consulter un médecin dans un bref délai</p> 
     </ion-card-content>
   </ion-card>

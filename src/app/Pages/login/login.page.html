@@ -1,34 +1,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <ion-content fullscreen="true" class="custom-font">
-  <h4>Connexion</h4>
-<div class="ion-padding">
-  <ion-img src="../../assets/logo.png"></ion-img>
+    <div class="ion-padding">
+      <ion-img src="../../assets/logo.png"></ion-img>
+      <h4>Connectez-vous</h4>
 
-  <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)" novalidate autocomplete="nope" class="ion-padding">
+        <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)" novalidate autocomplete="nope" class="ion-padding">
 
-    <div class="wrap-input">
-    <input class="input" type="text" name="mobile" placeholder="Email ou Téléphone" ngModel required autocomplete>
+          <div class="wrap-input">
+          <input class="input" type="text" name="mobile" placeholder="Email ou Téléphone" ngModel required autocomplete>
+          </div>
+
+          <div class="wrap-input">
+          <input class="input" type="password"  name="motDePasse" placeholder="Mot de passe" ngModel required>
+          </div> 
+
+          <p class="custom-font"> 
+            <a routerLink="/register">Mot de passe oublié?</a>
+          </p>
+          <div class="container-form-btn">
+            <button type='submit' class="form-btn custom-font">
+            Se Connecter
+            </button>
+          </div>   
+        </form>
     </div>
-
-    <div class="wrap-input">
-    <input class="input" type="password"  name="motDePasse" placeholder="Mot de passe" ngModel required>
-    </div> 
-
-    <p class="custom-font"> 
-      <a routerLink="/register">Mot de passe oublié?</a>
-    </p>
-    <div class="container-form-btn">
-      <button type='submit' class="form-btn custom-font">
-      Valider
-      </button>
-    </div>   
-  </form>
-</div>
-<ion-footer class="ion-no-border">
-      <p class="ion-text-center custom-font">Vous n’avez pas de compte ? <br>
-        <a routerLink="/register">Inscrivez-vous</a>
-      </p>
-</ion-footer>
+    <ion-footer class="ion-no-border">
+          <p class="ion-text-center custom-font">Vous n’avez pas de compte ? <br>
+            <a routerLink="/register">Inscrivez-vous</a>
+          </p>
+    </ion-footer>
 
 </ion-content>
 
