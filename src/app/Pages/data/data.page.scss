@@ -1,0 +1,46 @@
+.headd{
+    .a{
+      width: 200px; 
+      text-align: right;
+      h3{
+        margin-top: 35px; 
+        margin-right: 10px;
+      }
+    }
+    .col{
+      ion-img{
+        height: 50px;
+      margin-top:20px;
+      }
+    }
+  }
+//   fin head
+
+
+ion-content{
+    .row{
+        border-top: 12px #1D5F24;
+    }
+}
+
+.etat{
+    border-top: solid #1D5F24 10px;
+    background-color: #bfbfbf15;
+    .row{
+        h3{
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .tet{
+            ion-label{
+                font-weight: bold;
+            }
+        }
+        .corp{
+            ion-label{
+                font-size: 13px;
+
+            }
+        }
+    }
+}

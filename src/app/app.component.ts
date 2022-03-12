@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   public pages: any[] = [
     {title: 'Accueil', url: '/tabs', icon: 'home',image:'../assets/iconImage/home.png'},
-    {title: 'Données', url: '/dd', icon: 'person', image:'../assets/iconImage/database.png'},
+    {title: 'Données', url: '/data', icon: 'person', image:'../assets/iconImage/database.png'},
     {title: 'Conseils', url: '/conseil-sante', icon: 'information-circle',image:'../assets/iconImage/pharmacy.png'},
     {title: 'Medecins', url: '/docteur', icon: 'person', image:'../assets/iconImage/doctor.png'},
     {title: 'A propos', url: '/dd', icon: 'person', image:'../assets/iconImage/about.png'},

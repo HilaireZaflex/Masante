@@ -1,34 +1,44 @@
-
+<!-- header -->
+<ion-header>
+  <ion-toolbar>
+    <ion-menu-button menuId="custom-menu" slot="start"></ion-menu-button>
+    <div class="container headd" routerLink="/profile" >
+      <div class="row" style="display: flex;">
+        <div class="col a" ><h3>{{InfoUser.nomComplet}}</h3></div>
+        <div class="col"><ion-img src="../../../assets/iconImage/account.png"></ion-img></div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<!-- fin header -->
 <ion-content>
   <div class="main_content_div">
-    <ion-buttons slot="start" class="menu_btn">
-      <ion-menu-button color="light"></ion-menu-button>
-    </ion-buttons>
-    <div class="user_div">
-
-      <div class="first_div">
-        
-        <ion-label class="username">{{InfoUser.nomComplet}}</ion-label>
-        <ion-label class="welcome">{{InfoUser.mobile}}|{{InfoUser.email}}</ion-label>
-      </div>
-      <div class="user_back" [style.backgroundImage]="'url(assets/img7.jpg)'"></div>
-    </div>
-
     <div class="content_div animated bounceInUp" >
-        <ion-label class="info">Mon Bilan de santé</ion-label>
-      
-      <ion-grid fixed>
-        <ion-row>
-          <ion-col size="6" (click)="goToSubject()" *ngFor="let item of (subjects | slice:1)">
-            <div class="col-div">
-              <img src="{{item.img}}" alt="">
-              <ion-label>{{item.name}}</ion-label>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+        <ion-label class="info">Profil</ion-label>
+        <ion-card>
+          <ion-item><b>Nom : </b> &nbsp;&nbsp; {{InfoUser.nomComplet}}</ion-item>
+      <ion-item><b>Adresse : </b> &nbsp;&nbsp; {{InfoUser.adresse}}</ion-item>
+      <ion-item><b>Age : </b> &nbsp;&nbsp; {{InfoUser.age}} ans</ion-item>
+      <ion-item><b>Téléphone: </b> &nbsp;&nbsp; {{InfoUser.mobile}}</ion-item>
+      <ion-item><b>Email : </b> &nbsp;&nbsp; {{InfoUser.email}}</ion-item>
+      <ion-item><b>Suivie : </b> &nbsp;&nbsp; {{InfoUser.maladies}}</ion-item>
+        </ion-card>
+        <div class="container-form-btn">
+          <button type="submit" class="form-btn custom-font">
+            Modifier
+          </button>
+        </div>
+
+        <div class="container-form-btn">
+          <button type="submit" class="form-btn custom-font">
+            Suivie
+          </button>
+        </div>
     </div>
-  </div>  
+    
+  </div> 
+   
+  
 </ion-content>
 
 

@@ -63,6 +63,10 @@ userData(id:any):Observable<any>{
 return this._http.get(this.url+"/donneeByUser/"+id,{responseType: "text"})
 }
 
+//-------------User Data-----------------------
+userDonnee(id:any):Observable<any>{
+  return this._http.get(this.url+"/userDonnee/"+id,{responseType: "text"})
+  }
 
 //--------------////////---------------------
 

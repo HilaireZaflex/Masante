@@ -106,8 +106,8 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/liste-tension/liste-tension.module').then( m => m.ListeTensionPageModule)
   },
   {
-    path: 'menu',
-    loadChildren: () => import('./Pages/menu/menu.module').then( m => m.MenuPageModule)
+    path: 'data',
+    loadChildren: () => import('./Pages/data/data.module').then( m => m.DataPageModule)
   },
 ];
 
