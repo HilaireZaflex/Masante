@@ -2,7 +2,7 @@
 
 <ion-content fullscreen="true" class="custom-font">
       <div class="ion-padding">
-        <h4>Enregistrement</h4>
+        <h4>Inscrivez-vous</h4>
         <form #user="ngForm" (ngSubmit)="SaveData(user)" novalidate autocomplete="nope" class="ion-padding">
 
           <div class="wrap-input">
@@ -43,16 +43,18 @@
             <input class="input" type="date" placeholder="Âge" name="age" ngModel>
           </div> 
 
-          <div class="check">
-            <input type="checkbox" />Acceptez de recevoir des rappels
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />Acceptez de recevoir des rappels
           </div>
 
           <div class="container-form-btn">
             <button type="submit" class="form-btn custom-font">
-            Valider
+              S’inscrire
             </button>
           </div>   
-          <p class="ion-text-center custom-font">Avez-vous un compte? <a routerLink="/login">Connectez-vous</a></p>
         </form>
       </div>
+      <ion-footer class="ion-no-border">
+        <p class="ion-text-center custom-font">Avez-vous un compte? <br> <a routerLink="/login">Connectez-vous</a></p>
+      </ion-footer>
 </ion-content>
