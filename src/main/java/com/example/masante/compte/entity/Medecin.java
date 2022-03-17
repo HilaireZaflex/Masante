@@ -1,11 +1,13 @@
 package com.example.masante.compte.entity;
 
+import com.example.masante.contact.entity.Contact;
 import com.example.masante.enumeration.Specialite;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,4 +21,7 @@ public class Medecin extends Compte {
 
     @ManyToOne
     private Admin admin;
+
+    @OneToMany (mappedBy = "medecin")
+    private List <Contact> contacts;
 }

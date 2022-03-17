@@ -1,6 +1,5 @@
 package com.example.masante.specialite.service;
 
-import com.example.masante.compte.entity.Compte;
 import com.example.masante.enumeration.Etat;
 import com.example.masante.specialite.entity.Specialite;
 

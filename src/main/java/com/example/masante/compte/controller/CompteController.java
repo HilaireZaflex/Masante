@@ -66,9 +66,24 @@ public class CompteController {
 
     //Modifier mot de passe
     @PutMapping(path = "modifierMotDePasse/{id}")
-    public String modifierMotDePasse(@RequestBody Compte compte,@PathVariable Integer id){
+    public String modifierMotDePasse(@RequestBody Compte compte,@PathVariable Long id){
         this.compteService.modifierMotDePasse(id, compte);
         return "Mot de passse changer avec succes";
+    }
+
+
+    //Choix du suivie DIABETE
+    @PutMapping(path = "/suivieDIABETE/{id}")
+    public String suivieChoixDiabete(@PathVariable("id")Long id){
+        this.compteService.suivieChoixDiabete(id);
+        return "Choix effectue";
+    }
+
+    //Choix du suivie TENSION
+    @PutMapping(path = "/suivieTENSION/{id}")
+    public String suivieChoixTension(@PathVariable("id")Long id){
+        this.compteService.suivieChoixTension(id);
+        return "Choix effectue";
     }
 
     //-----------------------------requete personnaliser----------------------------
@@ -78,18 +93,37 @@ public class CompteController {
     @ResponseBody
     @GetMapping( "/connexion/{mobile}&{motDePasse}")
     public Compte connexion(
-            @PathVariable("mobile") Integer mobile,
-            @PathVariable("motDePasse") Integer motDePasse){
+            @PathVariable("mobile") String mobile,
+            @PathVariable("motDePasse") String motDePasse){
         return this.compteService.connexion(mobile, motDePasse);
     }
+
+    //connexion au compte email
+    @ResponseBody
+    @GetMapping( "/connexionEmail/{email}&{motDePasse}")
+    public Compte connexionEmail(
+            @PathVariable("email") String email,
+            @PathVariable("motDePasse") String motDePasse){
+        return this.compteService.connexionEmail(email, motDePasse);
+    }
+
 
     //connexion au compte Admin
     @ResponseBody
     @GetMapping( "/connexionAdmin/{mobile}&{motDePasse}")
     public Admin logIn(
-            @PathVariable("mobile") Integer mobile,
-            @PathVariable("motDePasse") Integer motDePasse){
+            @PathVariable("mobile") String mobile,
+            @PathVariable("motDePasse") String motDePasse){
         return this.compteService.logIn(mobile,motDePasse);
+    }
+
+    //connexion au compte Admin email
+    @ResponseBody
+    @GetMapping( "/connexionAdminEmail/{email}&{motDePasse}")
+    public Admin logInEmail(
+            @PathVariable("email") String email,
+            @PathVariable("motDePasse") String motDePasse){
+        return this.compteService.logInEmail(email, motDePasse);
     }
 
     //recuperer tout les comptes dont l'etat est Active

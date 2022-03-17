@@ -8,6 +8,7 @@ import com.example.masante.enumeration.Etat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -19,8 +20,11 @@ import java.util.Optional;
 @CrossOrigin("*")
 public interface CompteRepository extends JpaRepository <Compte, Long>{
 
-    Optional<Compte> findByMobileAndMotDePasse(Integer mobile, Integer motDePasse);
-    Optional<Admin> findAdminByMobileAndMotDePasse(Integer mobile, Integer motDePasse);
+    Optional<Compte> findByMobileAndMotDePasse(String mobile, String motDePasse);
+    Optional<Compte> findByEmailAndMotDePasse(String email, String motDePasse);
+
+    Optional<Admin> findAdminByMobileAndMotDePasse(String mobile, String motDePasse);
+    Optional<Admin> findAdminByEmailAndMotDePasse(String email, String motDePasse);
 
 
     @Query(value = "SELECT compte FROM Compte  compte WHERE compte.etat = 'ACTIVE'")
@@ -41,6 +45,18 @@ public interface CompteRepository extends JpaRepository <Compte, Long>{
     @Modifying
     @Query(value = "UPDATE Compte SET etat='ACTIVE' WHERE id=:id")
     Void enableCompte(Long id);
+
+    // Choix du suivi DIABETE
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE Utilisateur  SET suivie ='DIABETE' WHERE id =:id")
+    void updateSuiviDIABETE(Long id);
+
+    // Choix du suivi TENSION
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE Utilisateur SET suivie ='TENSION' WHERE id =:id")
+    void updateSuiviTENSION(Long id);
 
     //-----------------Change etat compte-------------//
     @Transactional

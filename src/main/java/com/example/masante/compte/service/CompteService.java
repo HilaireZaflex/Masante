@@ -16,12 +16,18 @@ public interface CompteService {
     List<Compte> getAllCompte();        // methode afficher tout les comptes
     public Compte getCompteById (Long id); // methode pour recuperer les compte par id
     public String deleteCompte(Long id); //Suprimer un compte de la base
-    public Compte modifierMotDePasse (long id, Compte compte);
+    public Compte modifierMotDePasse (Long id, Compte compte);
 
 
     //---------------------requete personnaliser----------------------------
-    public Compte connexion(Integer mobile, Integer motDePasse); //Authentification
-    public Admin logIn(Integer mobile, Integer motDePasse); //Authentification Admin
+
+
+    String suivieChoixDiabete(Long id); // Choix du suivi DIABETE
+    String suivieChoixTension(Long id); // Choix du suivi TENSION
+    public Compte connexion(String mobile, String motDePasse); //Authentification mobile
+    public Compte connexionEmail(String email, String motDePasse); //Authentification email
+    public Admin logIn(String mobile, String motDePasse); //Authentification Admin mobile
+    public Admin logInEmail(String email, String motDePasse); //Authentification Admin
     List<Compte>getAllCompteActive();       //methode recuperer tout les comptes dont l'etat est Active
     List<Compte>getAllCompteInactive();      //methode recuperer tout les comptes dont l'etat est Inactive
     Compte getCompteByIdAndEtat (Long id, Etat etat);       //methode recuperer les comptes par id et par etat

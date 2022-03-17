@@ -9,6 +9,8 @@ import com.example.masante.compte.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +22,19 @@ public class CompteServiceImpl implements CompteService{
     //Creer un compte
     @Override
     public String CreerCompte(Compte compte) {
+
+        LocalDate maintenant = LocalDate.now();
+        int ageA = maintenant.getYear() - compte.getDateDeNaissance().getYear();
+        if ((compte.getDateDeNaissance().getMonthValue() > maintenant.getMonthValue()
+                || (compte.getDateDeNaissance().getMonthValue() == maintenant.getMonthValue())
+                && (compte.getDateDeNaissance().getDayOfMonth() > maintenant.getDayOfMonth())))
+        {
+            ageA--;
+        }
+        compte.setAge(ageA);
         this.compteRepository.save(compte);
-        return "Compte créer avec success";
+        return compte.toString();
+
     }
 
     //Creer un compte medecin
@@ -63,25 +76,52 @@ public class CompteServiceImpl implements CompteService{
 
     //Modifier mot de passe
     @Override
-    public Compte modifierMotDePasse(long id, Compte compte) {
+    public Compte modifierMotDePasse(Long id, Compte compte) {
         Compte compt = compteRepository.findById(id).get();
         compt.setMotDePasse(compte.getMotDePasse());
         return compteRepository.save(compt);
         }
 
+    //Choix du suivie DIABETE
+    @Override
+    public String suivieChoixDiabete(Long id) {
+        this.compteRepository.updateSuiviDIABETE(id);
+        return "Suivie ajouter";
+    }
+
+    //Choix du suivie TENSION
+    @Override
+    public String suivieChoixTension(Long id) {
+        this.compteRepository.updateSuiviTENSION(id);
+        return "Suivie ajouter";
+    }
 
     //--------------------------------requete personnaliser----------------------------
     //Connexion compte
     @Override
-    public Compte connexion(Integer mobile, Integer motDePasse) {
+    public Compte connexion(String mobile, String motDePasse) {
         Optional <Compte> connecter = compteRepository.findByMobileAndMotDePasse(mobile,motDePasse);
+        return connecter.get();
+    }
+
+    //Connexion compte Email
+    @Override
+    public Compte connexionEmail(String email, String motDePasse) {
+        Optional<Compte> connecter = compteRepository.findByEmailAndMotDePasse(email,motDePasse);
         return connecter.get();
     }
 
     //Connexion compte Admin
     @Override
-    public Admin logIn(Integer mobile, Integer motDePasse) {
-        Optional <Admin> connecte = compteRepository.findAdminByMobileAndMotDePasse(mobile,motDePasse);
+    public Admin logIn(String mobile, String motDePasse) {
+        Optional <Admin> connecte = compteRepository.findAdminByMobileAndMotDePasse(mobile, motDePasse);
+        return connecte.get();
+    }
+
+    //Connexion compte Admin Email
+    @Override
+    public Admin logInEmail(String email, String motDePasse) {
+        Optional<Admin> connecte = compteRepository.findAdminByEmailAndMotDePasse(email, motDePasse);
         return connecte.get();
     }
 

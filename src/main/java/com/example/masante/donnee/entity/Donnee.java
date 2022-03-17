@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -27,21 +28,27 @@ public class Donnee {
     @Column
     private Integer valeurB;
 
-    @Column(nullable = true)
+    @Column
     private Float valeurC;
 
     @Column
     private Integer unite;
 
     @Column
-    String maladies;
+    private LocalDateTime date = LocalDateTime.now();
 
+    @Column
+    String maladies;
 
     @Column
     private String resultat;
 
+    @Column
+    private int couleur;
+
     @ManyToOne
     private Maladie maladie;
+
 
     @ManyToOne
     private Utilisateur utilisateur;

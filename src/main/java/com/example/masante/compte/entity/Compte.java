@@ -37,16 +37,19 @@ public abstract class Compte {
     private String adresse;
 
     @Column(nullable = false, unique = true)
-    private Integer mobile;
+    private String mobile;
 
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
-    private LocalDate age;
+    @Column
+    private int age;
+
+    @Column
+    private LocalDate dateDeNaissance;
 
     @Column(nullable = false)
-    private Integer motDePasse;
+    private String motDePasse;
 
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.ACTIVE;

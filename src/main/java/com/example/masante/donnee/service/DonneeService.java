@@ -1,7 +1,10 @@
 package com.example.masante.donnee.service;
 
 
+
+import com.example.masante.compte.entity.Utilisateur;
 import com.example.masante.donnee.entity.Donnee;
+
 
 import java.util.List;
 
@@ -17,7 +20,17 @@ public interface DonneeService {
     String calculTension(Donnee donnee);
     String calculDiabete(Donnee donnee);
 
-    List <Donnee> dernierDonnee();
+/**------------requt person------------------*/
+
+    List <Donnee> dernierDonnee(); // Dernier doonnee dans la base
+    List <Donnee> donneeByUser(Long id);  // Donnee de l'utilisateur par Id
+
+    Donnee donneeByUserByData(Long id);
+
+
+//    Donnee dernierDonneeByIdAndUtilisateur(Long id, Utilisateur utilisateur);       //methode recuperer les donnees par id et par utilisateurs
+
+    List <Donnee> userDonnee(long id);
 
 
 }

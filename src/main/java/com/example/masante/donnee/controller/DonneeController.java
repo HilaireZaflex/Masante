@@ -1,8 +1,11 @@
 package com.example.masante.donnee.controller;
 
 
+import com.example.masante.compte.entity.Compte;
+import com.example.masante.compte.entity.Utilisateur;
 import com.example.masante.donnee.service.DonneeService;
 import com.example.masante.donnee.entity.Donnee;
+import com.example.masante.enumeration.Etat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -75,4 +78,24 @@ public class DonneeController {
         return this.donneeService.dernierDonnee();
     }
 
+    // Donnee de l'utilisateur par Id
+    @GetMapping(path = "/donneeByUser/{id}")
+    public Donnee donneeByUser(@PathVariable("id")Long id){
+       // return this.donneeService.donneeByUser(id);
+        return this.donneeService.donneeByUserByData(id);
+    }
+
+    //dernier donnee par utilisateur
+//    @GetMapping(path = "/dernierDonneeUser/{id}&{userId}" )
+//    public Donnee dernierDonneeUser(
+//            @PathVariable("id")Long id,
+//            @PathVariable("userId")Long userId){
+//        return donneeService.dernierDonneeByIdAndUtilisateur(id,userId);
+//    }
+
+    // tout les doonnee de l'utilisateur
+    @GetMapping(path = "/userDonnee/{id}")
+    public List<Donnee> userDonnee(@PathVariable("id")Long id){
+        return this.donneeService.userDonnee(id);
+    }
 }

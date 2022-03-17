@@ -1,13 +1,17 @@
 package com.example.masante.conseil.entity;
 
+import com.example.masante.compte.entity.Admin;
 import com.example.masante.compte.entity.Medecin;
 import com.example.masante.compte.entity.Utilisateur;
+import com.example.masante.enumeration.Etat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Data
@@ -20,13 +24,20 @@ public class Conseil {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    private String libelle;
+
+    private String image;
+
+
     private String description;
 
+    private LocalDateTime date = LocalDateTime.now();
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.ACTIVE;
 
     @ManyToOne
-    private Utilisateur utilisateur;
-    @ManyToOne
-    private Medecin medecin;
+    private Admin admin;
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.masante.donnee.service;
 
+import com.example.masante.compte.entity.Utilisateur;
 import com.example.masante.maladie.entity.Maladie;
 import com.example.masante.donnee.entity.Donnee;
 import com.example.masante.donnee.repository.DonneeRepository;
@@ -154,41 +155,50 @@ public class DonneeServiceImpl implements DonneeService {
     @Override
     public String calculTension(Donnee donnee) {
         String donneeTension="";
+        int couleurs = 0;
         donnee.setMaladies("TENSION");
 
         if (donnee.getValeurA() <= 120 && donnee.getValeurB() <= 80)
         {
             donneeTension =  "Optimale";
+            couleurs = 1;
         }
         else if((donnee.getValeurA() >= 120 && donnee.getValeurA() <= 129) && (donnee.getValeurB()>= 80 && donnee.getValeurB()<= 84))
         {
             donneeTension = " Normal";
+            couleurs = 1;
         }
         else if((donnee.getValeurA() >= 130 && donnee.getValeurA() <= 139) && (donnee.getValeurB() >= 85 && donnee.getValeurB() <= 89))
         {
             donneeTension = " Normal Haute";
+            couleurs = 2;
         }
         else if((donnee.getValeurA() >= 140 && donnee.getValeurA() <=159) && (donnee.getValeurB() >= 90 && donnee.getValeurB() <= 99))
         {
             donneeTension = " Hypertention grade1";
+            couleurs = 3;
         }
         else if((donnee.getValeurA() >= 160 && donnee.getValeurA() <=179) && (donnee.getValeurA() >= 100 && donnee.getValeurB() <= 109))
         {
             donneeTension = " Hypertention grade2";
+            couleurs = 3;
         }
         else if(donnee.getValeurA() >= 180 && donnee.getValeurA()>=110)
         {
             donneeTension = " Hypertention grade3";
+            couleurs = 3;
         }
         else if(donnee.getValeurA() >= 140 && donnee.getValeurA() <90)
         {
             donneeTension = " Hypertention Systolique isolee";
+            couleurs = 3;
         }
         else
         {
             donneeTension = "les valeurs ne correspond pas à notre analyse ";
         }
         donnee.setResultat(donneeTension);
+        donnee.setCouleur(couleurs);
         this.donneeRepository.save(donnee);
         return donnee.toString();
     }
@@ -198,24 +208,29 @@ public class DonneeServiceImpl implements DonneeService {
     @Override
     public String calculDiabete(Donnee donnee) {
         String donneeDiabete = "";
+        int couleurs = 0;
         donnee.setMaladies("DIABETE");
             if (donnee.getUnite()==2)       //Unite "mg/dl" expl: 70
             {
                 if (donnee.getValeurA() <= 70)
                 {
                     donneeDiabete =" Hypoglycémie";
+                    couleurs = 1;
                 }
                 else if(donnee.getValeurA() >= 70 && donnee.getValeurA() <= 100)
                 {
                     donneeDiabete =  " Glycémie normale";
+                    couleurs = 1;
                 }
                 else if(donnee.getValeurA() >= 100 && donnee.getValeurA() <= 125)
                 {
                     donneeDiabete = " Hyperglycémie modérée";
+                    couleurs = 2;
                 }
                 else if(donnee.getValeurA() >= 126)
                 {
                     donneeDiabete = " Diabète";
+                    couleurs = 3;
                 }
                 else
                 {
@@ -227,15 +242,19 @@ public class DonneeServiceImpl implements DonneeService {
             {
                 if (donnee.getValeurC() <= 0.7){
                     donneeDiabete = " Hypoglycémie";
+                    couleurs = 1;
                 }else if(donnee.getValeurC() >= 0.7 && donnee.getValeurC() <= 1)
                 {
                     donneeDiabete =  " Glycémie normale";
+                    couleurs = 1;
                 }else if(donnee.getValeurC() >= 1 && donnee.getValeurC() <= 1.25)
                 {
-                    System.out.println(donnee.getValeurC() + " Hyperglycémie modérée");
+                    donneeDiabete= " Hyperglycémie modérée";
+                    couleurs = 2;
                 }else if(donnee.getValeurC() >= 1.26)
                 {
                     donneeDiabete = " Diabète";
+                    couleurs = 3;
                 }else
                 {
                     donneeDiabete = "les valeurs ne correspond pas à notre analyse ";
@@ -245,6 +264,7 @@ public class DonneeServiceImpl implements DonneeService {
                 donneeDiabete = "les valeurs ne correspond pas à notre analyse ";
             }
         donnee.setResultat(donneeDiabete);
+            donnee.setCouleur(couleurs);
         this.donneeRepository.save(donnee);
         return donnee.toString();
     }
@@ -255,5 +275,27 @@ public class DonneeServiceImpl implements DonneeService {
     public List<Donnee> dernierDonnee() {
         return donneeRepository.dernierDonnee();
     }
+
+    @Override
+    public List<Donnee> donneeByUser(Long id) {
+        return donneeRepository.dernierDonneeByUser(id);
+    }
+
+    @Override
+    public Donnee donneeByUserByData(Long id) {
+        return donneeRepository.dernierDonneeByUserBydata(id);
+    }
+
+
+    @Override
+    public List<Donnee> userDonnee(long id) {
+        return donneeRepository.userDonnee(id);
+    }
+
+    //dernier donner par utilisateur
+//    @Override
+//    public Donnee dernierDonneeByIdAndUtilisateur(Long id, Long userId) {
+//        return donneeRepository.dernierDonneeByIdAndUtilisateur(id,userId);
+//    }
 
 }
