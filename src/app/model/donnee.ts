@@ -6,6 +6,7 @@ export class Donnee {
     malad:any;
     resultat:any;
     utilisateur:any;
+    couleur:any;
 
 constructor(){}
 }

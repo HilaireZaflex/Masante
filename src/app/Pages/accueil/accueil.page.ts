@@ -14,9 +14,11 @@ export class AccueilPage implements OnInit {
   userData :any;
   userInfo :any;
   mali: any;
+  compteDetail : any;
   //====================
   maladies : any;
   resultat : any;
+  couleur : any;
 
   //====================
   constructor(private userService: UserService) { }
@@ -24,21 +26,23 @@ export class AccueilPage implements OnInit {
   ngOnInit() {
     
     this.InfoUser=JSON.parse(localStorage.getItem('user'));
-    // console.log(this.InfoUser);
+
+    this.userService.compteDetail(this.InfoUser.id).subscribe((data:any)=>{
+      this.compteDetail = JSON.parse(data);
+      
+    })
 
     this.userService.resultat().subscribe((data:any)=>{
       this.dernierDonneee = data;
 
-      // console.log(data);
     })
 
     this.userInfo = this.InfoUser;
-    console.log("AAAAAAAAAA",this.userInfo)
     this.userService.userData(this.userInfo.id).subscribe((data:any)=>{
       this.userData = JSON.parse(data);
       this.maladies = this.userData.maladies;
       this.resultat = this.userData.resultat;
-    console.log("BBBBBBBBBBBB",this.userData.resultat)
+      this.couleur = this.userData.couleur;
 
     })
   }

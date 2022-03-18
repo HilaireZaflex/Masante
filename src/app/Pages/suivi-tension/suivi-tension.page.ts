@@ -18,6 +18,8 @@ export class SuiviTensionPage implements OnInit {
   valeurA:any;
   valeurB:any;
   tension:any;
+  InfoUser: any;
+  user: any;
 
   constructor(
     public platform: Platform,
@@ -30,9 +32,12 @@ export class SuiviTensionPage implements OnInit {
     this.platform.ready().then(()=>{
       this.rangeValu ="70";
     })
+    this.user = localStorage.getItem('user');
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.InfoUser=JSON.parse(localStorage.getItem('user'));
+  }
 
   async calculT(forms:NgForm){
 
@@ -43,13 +48,13 @@ export class SuiviTensionPage implements OnInit {
 
     this.donnee.valeurA=this.valeurA;
     this.donnee.valeurB=this.valeurB;
+    this.donnee.utilisateur=JSON.parse(this.user);
    
     this.service.calculTension(this.donnee).subscribe((data:any)=>{
       this.tension=data;
-      console.log("votre resuta"+ data)
-      this.router.navigate(['accueil'])
+      this.router.navigate(['tabs'])
     })
-    
+    window.location.reload();
    }
 
 }

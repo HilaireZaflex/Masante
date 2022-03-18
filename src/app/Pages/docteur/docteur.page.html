@@ -1,56 +1,91 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- header -->
 <ion-header>
   <ion-toolbar>
-    <ion-menu-button slot="start"></ion-menu-button>
-    <ion-title>Mon docteur</ion-title>
+    <ion-menu-button menuId="custom-menu" slot="start"></ion-menu-button>
+    <div class="container headd" routerLink="/profile" >
+      <div class="row" style="display: flex;">
+        <div class="col a" ><h3></h3></div>
+        <div class="col" *ngIf="InfoUser.Type==='MEDECIN'"><ion-img src="../../../assets/iconImage/doctor.png"></ion-img></div>
+        <div class="col" *ngIf="InfoUser.Type==='UTILISATEUR'"><ion-img src="../../../assets/iconImage/account.png"></ion-img></div>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
+<!-- fin header -->
 
 <ion-content>
-  <h5>Mon docteur</h5>
- <ion-item>
-      <ion-avatar slot="start">
-        <img src="../../assets/img7.jpg" />
-      </ion-avatar>
-      <ion-label>
-        <h3><b>Dr Hilaire Zaflex</b></h3>
-        <p> <b>Address:</b>Sotuba</p>
-        <p> <b>Spécialité:</b>Neurologue</p>
-        <p> <b>Contact:</b>83092295</p>
-        <button routerLink="/messages" class="form-btn">
-          Envoyer un message
-         </button>
-      </ion-label>
+  <div class="container etat">
+    <div class="row">
+      <div class="container-form-btn">
+        <button *ngIf="InfoUser.Type==='UTILISATEUR'" routerLink="/ajout-docteur" class="form-btn custom-font">
+        Ajouter
+        </button>
+        <button *ngIf="InfoUser.Type==='MEDECIN'" routerLink="/ajout-patient" class="form-btn custom-font">
+          Ajouter
+          </button>
+      </div> 
+    </div>
+    <div class="wrap-input">
+      <input class="input"placeholder="Recherche" type="text" name="mobile"  autocomplete="off" >
+    </div>
+    <div *ngIf="InfoUser.Type==='UTILISATEUR'" class="row">
+      <h3>Mes Medecins</h3>
+    </div>
+    <div *ngIf="InfoUser.Type==='MEDECIN'" class="row">
+      <h3>Mes Patients</h3>
+    </div>
+    <div class="row" >
+      
+    </div>
+    <ion-item *ngIf="InfoUser.Type==='UTILISATEUR'">
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-auto img">
+           
+              <img  src="../../../assets/iconImage/doctor.png" />
+         
+          </div>
+          <div class="col">
+            <ion-label>
+              <h3><b>Dr Hilaire Zaflex</b></h3>
+              <p> Sotuba</p>
+              <p> Neurologue</p>
+              <p>83092295</p>
+              
+            </ion-label>
+            <button routerLink="/messages" class="form-btn">
+              Contactez
+             </button>
+          </div>
+        </div>
+      </div>
     </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="../../assets/img7.jpg" />
-      </ion-avatar>
-      <ion-label>
-        <h3><b>Dr Hilaire Zaflex</b></h3>
-        <p> <b>Address:</b>Sotuba</p>
-        <p> <b>Spécialité:</b>Neurologue</p>
-        <p> <b>Contact:</b>83092295</p>
-        <button class="form-btn">
-          Envoyer un message
-         </button>
-      </ion-label>
+    <ion-item *ngIf="InfoUser.Type==='MEDECIN'">
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-auto img">
+           
+              <img  src="../../../assets/iconImage/account.png" />
+         
+          </div>
+          <div class="col">
+            <ion-label>
+              <h3><b>Dr Hilaire Zaflex</b></h3>
+              <p> Sotuba</p>
+              <p> Neurologue</p>
+              <p>83092295</p>
+              
+            </ion-label>
+            <button routerLink="/messages" class="form-btn">
+              Contactez
+             </button>
+          </div>
+        </div>
+      </div>
     </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="../../assets/img7.jpg" />
-      </ion-avatar>
-      <ion-label>
-        <h3><b>Dr Hilaire Zaflex</b></h3>
-        <p> <b>Address:</b>Sotuba</p>
-        <p> <b>Spécialité:</b>Neurologue</p>
-        <p> <b>Contact:</b>83092295</p>
-        <button class="form-btn">
-          Envoyer un message
-         </button>
-      </ion-label>
-    </ion-item>
-
-</ion-content>
+  </div>
+  </ion-content>

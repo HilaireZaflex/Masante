@@ -25,7 +25,6 @@ export class DataPage implements OnInit {
      //les donnees de l'utilisateur
      this.serviceU.userDonnee(this.InfoUser.id).subscribe((data:any)=>{
        this.user = JSON.parse(data);
-       console.log("Mady",this.user);
      })
   }
 

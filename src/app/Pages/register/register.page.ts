@@ -24,7 +24,7 @@ export class RegisterPage implements OnInit {
   mobile:any;
   adresse:any;
   motDePasse:any;
-  age:any;
+  dateDeNaissance:any;
   specialite:any;
   Type:any;
 
@@ -72,7 +72,7 @@ export class RegisterPage implements OnInit {
     this.mobile=forms.value['mobile'];
     this.adresse=forms.value['adresse'];
     this.motDePasse=forms.value['motDePasse'];
-    this.age=forms.value['age'];
+    this.dateDeNaissance=forms.value['dateDeNaissance'];
     this.specialite=forms.value['specialite'];
 
     this.user.nomComplet=this.nomComplet;
@@ -81,7 +81,7 @@ export class RegisterPage implements OnInit {
     this.user.mobile=this.mobile;
     this.user.adresse=this.adresse;
     this.user.motDePasse=this.motDePasse;
-    this.user.age=this.age;
+    this.user.dateDeNaissance=this.dateDeNaissance;
     this.user.specialite=this.specialite;
     this._service.creerCompte(this.user).subscribe((data:any)=>{
       this.donnee=data;

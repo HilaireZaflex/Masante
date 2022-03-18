@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-conseil-sante',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConseilSantePage implements OnInit {
 
-  constructor() { }
+
+  InfoUser: any;
+  img: any;
+  list: any;
+
+  constructor(
+    private serviceU : UserService
+  ) { }
 
   ngOnInit() {
+
+       // utilisateur connecter
+       this.InfoUser=JSON.parse(localStorage.getItem('user'));
+       // les conseils
+       this.img = this.serviceU.URLPhotoConsiel
+    this.serviceU.listeConseilActive().subscribe((data:any)=>{
+      this.list = data;
+    })
   }
 
 }

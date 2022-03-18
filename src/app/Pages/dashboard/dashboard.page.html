@@ -1,11 +1,60 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- header -->
+<ion-header>
+  <ion-toolbar>
+    <ion-menu-button menuId="custom-menu" slot="start"></ion-menu-button>
+    <div class="container headd" routerLink="/profile" >
+      <div class="row" style="display: flex;">
+        <div class="col a" ><h3>{{InfoUser?.nomComplet}}</h3></div>
+        <div class="col"><ion-img src="../../../assets/iconImage/doctor.png"></ion-img></div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<!-- fin header -->
+<ion-content class=".custom-font nombre  ">
+  <!-- ================ contenu================== -->
+  <div class="cont">
+    <span><b>{{InfoUser?.specialite}}</b></span>
+  </div>
+  <div class="container">
+    <div class="row ">
+      <div class="col-sm total b">
+        <div class="col-sm bb">
+          <h2>25</h2>
+          <p>Mes Patients</p>
+        </div>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+  <!-- ================================= -->
+  <div class="container">
 
-<ion-content>
-  <h5>Choix du suivi</h5>
-      <p style="color: #117401;">Veuillez choisir une option <br> suivante pour suivre l’état <br> de santé des utilisateurs</p>
-    <ion-button routerLink="/liste-diabete">
-      <ion-img src="../../assets/glucometer.png"></ion-img> <p><strong>Diabète</strong> <br> Analysez votre bilan</p> 
-    </ion-button>
-    <ion-button routerLink="/liste-tension">
-      <ion-img src="../../assets/tensiometer.png"></ion-img> <p><strong>Tension</strong> <br> Analysez votre bilan</p> 
-    </ion-button>
+    <!-- premier bloc -->
+  <div class="row cra" title="Les Conseils Médicals" routerLink="/conseil-sante">
+        <div class="img">
+        <ion-img  src="../../assets/iconImage/pharmacy.png"></ion-img>
+        </div>
+        <div class="tex">
+        <p>Conseils</p>
+        </div>
+      
+    </div>
+    <!-- Deuxiem bloc -->
+    <div class="row cra" title="Les Patients" routerLink="/docteur">
+        <div class="img" >
+          <ion-img src="../../assets/iconImage/account.png"></ion-img>
+        </div>
+        <div class="tex">
+            <p>Patients</p>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- ================================== -->
 </ion-content>
+
+

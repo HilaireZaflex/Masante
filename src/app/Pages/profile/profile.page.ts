@@ -13,36 +13,18 @@ export class ProfilePage implements OnInit {
   public users: User[];
   InfoUser: any;
 
+  profil : any;
+
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.InfoUser=JSON.parse(localStorage.getItem('user'));
-    console.log(this.InfoUser);
 
-    this.subjects = [
-      {
-        name : 'All'
-      },
-      {
-        img: 'assets/sport.png',
-        name: "Sport"
-      },
-      {
-        img: 'assets/sport1.png',
-        name: "Sport"
-      },
-      {
-        img: 'assets/sport3.png',
-        name: "Sport"
-      },
-      {
-        img: 'assets/sport.png',
-        name: "Sport"
-      }
-    ];
-  }
+    this.userService.compteDetail(this.InfoUser.id).subscribe((data:any)=>{
+      this.profil = JSON.parse(data);
 
-  goToSubject(){
+    })
 
   }
 

@@ -13,6 +13,8 @@ import { UserService } from 'src/app/service/user.service';
 export class SuiviDiabetePage implements OnInit {
   rangeVal: string;
   rangeValu:string;
+  slider: any = 0.1;
+  customSteps: any;
 
   donnee = new Donnee()
     valeurA:any;
@@ -20,6 +22,7 @@ export class SuiviDiabetePage implements OnInit {
     unite:any;
     diabete:any;
     user:any;
+  InfoUser: any;
 
   constructor(
     public platform: Platform,
@@ -33,12 +36,18 @@ export class SuiviDiabetePage implements OnInit {
     this.platform.ready().then(()=>{
       this.rangeValu = "0.7"
     })
-
+    this.watchSlider();
     this.user = localStorage.getItem('user');
-    console.log("salut mali",this.user)
   }
 
-  ngOnInit() {}
+  watchSlider(){
+    const steps = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2];
+    this.customSteps = steps[this.slider];
+  }
+
+  ngOnInit() {
+    this.InfoUser=JSON.parse(localStorage.getItem('user'));
+  }
   async calculD(forms:NgForm){
 
 
@@ -54,10 +63,11 @@ export class SuiviDiabetePage implements OnInit {
 
     this.service.calculDiabete(this.donnee).subscribe((data:any)=>{
       this.diabete=data;
-      // console.log("votre resuta"+ data)
+      
       this.router.navigate(['tabs'])
+      
     })
-    
+    window.location.reload();
    }
 
 }

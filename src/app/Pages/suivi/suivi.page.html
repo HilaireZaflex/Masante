@@ -2,18 +2,25 @@
 
 <ion-content>
 
-  <h6 routerLink="/accueil">X</h6>
-
-  <h5>Choix du suivi</h5>
-      <p style="color: #117401;">Veuillez choisir une option <br> suivante pour définir l’état <br> de votre santé</p>
-
+  <ion-list class="ion-text-center main-header">
+    <h6 (click)="gotToprofile()">X</h6>
+    <div class="text-center">
+        <ion-label color="white">
+            Option de Suivi
+        </ion-label>
+    </div>
+</ion-list>
+<h5>Veuillez choisir une option <br> de suivi</h5>
 <!--========= CHOIX INTERFACE ===========-->
-    <ion-button routerLink="/suivi-diabete">
-      <ion-img src="../../assets/glucometer.png"></ion-img> <p><strong>Diabète</strong> <br> Analysez votre bilan</p> 
+<form class="form-horizontal form-material" (ngSubmit)="updateSpecia()">
+    <ion-button type="submit">
+      <ion-img src="../../assets/glucometer.png"></ion-img> <p><strong>DIABETE</strong> </p> 
     </ion-button>
-    <ion-button routerLink="/suivi-tension">
+  </form>
 
-      <ion-img src="../../assets/tensiometer.png"></ion-img> <p><strong>Tension</strong> <br> Analysez votre bilan</p> 
+  <form class="form-horizontal form-material" (ngSubmit)="tension()">
+    <ion-button type="submit">
+      <ion-img src="../../assets/tensiometer.png"></ion-img> <p><strong>TENSION</strong></p> 
     </ion-button>
-  
+  </form>
 </ion-content>

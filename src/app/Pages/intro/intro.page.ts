@@ -14,7 +14,7 @@ export class IntroPage implements OnInit {
     speed: 500,
     loop: true,
     autoplay: {
-          delay: 3000,
+      delay: 3000,
     }
   };
 
@@ -22,12 +22,10 @@ export class IntroPage implements OnInit {
 
   ngOnInit() {
   }
-  login(){
-    console.log('button cliquez')
+  login() {
     this.route.navigate(['login'])
   }
-  register(){
-    console.log('button cliquez')
+  register() {
     this.route.navigate(['register'])
   }
 }

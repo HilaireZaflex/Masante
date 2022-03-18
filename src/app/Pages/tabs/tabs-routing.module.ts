@@ -27,10 +27,6 @@ const routes: Routes = [
         loadChildren: () => import('../../Pages/conseil-sante/conseil-sante.module').then( m => m.ConseilSantePageModule)
       },
       {
-        path: 'conseil-sport',
-        loadChildren: () => import('../../Pages/conseil-sport/conseil-sport.module').then( m => m.ConseilSportPageModule)
-      },
-      {
         path: '',
         redirectTo: 'accueil',
         pathMatch: 'full'

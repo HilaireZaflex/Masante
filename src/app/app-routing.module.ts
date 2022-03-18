@@ -58,8 +58,8 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/conseil-sante/conseil-sante.module').then( m => m.ConseilSantePageModule)
   },
   {
-    path: 'conseil-sport',
-    loadChildren: () => import('./Pages/conseil-sport/conseil-sport.module').then( m => m.ConseilSportPageModule)
+    path: 'modifier-profil',
+    loadChildren: () => import('./Pages/modifier-profil/modifier-profil.module').then( m => m.ModifierProfilPageModule)
   },
   {
     path: 'profile',
@@ -74,8 +74,8 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/manger/manger.module').then( m => m.MangerPageModule)
   },
   {
-    path: 'bonne-pratique',
-    loadChildren: () => import('./Pages/bonne-pratique/bonne-pratique.module').then( m => m.BonnePratiquePageModule)
+    path: 'apropos',
+    loadChildren: () => import('./Pages/apropos/apropos.module').then( m => m.AproposPageModule)
   },
   {
     path: 'clinique',
@@ -98,12 +98,12 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
-    path: 'liste-diabete',
-    loadChildren: () => import('./Pages/liste-diabete/liste-diabete.module').then( m => m.ListeDiabetePageModule)
+    path: 'ajout-docteur',
+    loadChildren: () => import('./Pages/ajout-docteur/ajout-docteur.module').then( m => m.AjoutDocteurPageModule)
   },
   {
-    path: 'liste-tension',
-    loadChildren: () => import('./Pages/liste-tension/liste-tension.module').then( m => m.ListeTensionPageModule)
+    path: 'ajout-patient',
+    loadChildren: () => import('./Pages/ajout-patient/ajout-patient.module').then( m => m.AjoutPatientPageModule)
   },
   {
     path: 'data',
