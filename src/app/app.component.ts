@@ -34,8 +34,13 @@ export class AppComponent {
     this.InfoUser = JSON.parse(localStorage.getItem('user'));
     if (this.InfoUser) {
       // this.router.navigateByUrl('/tabs');
-      this.router.navigateByUrl('', { skipLocationChange: true }).then(() =>
+      if(this.InfoUser.Type === 'UTILISATEUR'){
+        this.router.navigateByUrl('', { skipLocationChange: true }).then(() =>
         this.router.navigate(['tabs']));
+      }else if(this.InfoUser.Type === 'MEDECIN'){
+        this.router.navigateByUrl('', { skipLocationChange: true }).then(() =>
+        this.router.navigate(['dashboard']));
+      }
     }
   }
 

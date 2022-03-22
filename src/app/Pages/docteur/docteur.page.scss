@@ -31,9 +31,19 @@ ion-content{
   display: flex;
   justify-content: space-between;
   margin: 4px;
+  a{
+    text-decoration: none;
+  }
   h3{
+    color: #000;
     font-weight: bold;
-    margin-left: 10px;
+    font-size: 20px;
+    margin-top:25px;
+    margin-left:25px;
+  }
+  p{
+    font-size: 20px;
+    text-align: center;
   }
 }
 
@@ -71,9 +81,10 @@ img{
 
 .img{
   justify-content: center;
+
   img{
     margin-top: 20px;
-    height: 70px;
+    height: 50px;
   }
 }
 

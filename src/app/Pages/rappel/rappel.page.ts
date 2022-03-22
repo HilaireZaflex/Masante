@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rappel',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RappelPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router : Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  gotToAcceuil() {
+    this.router.navigate(['tabs']);
+    this.ngOnInit();
+
   }
 
 }

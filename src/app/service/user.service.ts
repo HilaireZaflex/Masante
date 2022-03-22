@@ -65,6 +65,10 @@ export class UserService {
   resultat(): Observable<any> {
     return this._http.get(this.url + "/dernierDonnee/")
   }
+  //-------------User Data -----------------------
+  dataDetail(id: any) {
+    return this._http.get(this.url + "/DonneeById/" + id, { responseType: "text" })
+  }
 
   //-------------User Data -----------------------
 
@@ -102,10 +106,6 @@ export class UserService {
 
   //-----------------Choix du suivie DIABETE-------------
   modifierProfil(id: any, data: any) {
-    console.log(id);
-    
-    console.log(data);
-    
     return this._http.put(this.url + '/modifier/' + id, data);
   }
 
@@ -124,6 +124,21 @@ export class UserService {
   getAllMedecin() {
     return this._http.get(this.url + "/medecin");
   }
+
+  //List contact by User
+  getContactByUser(id:any) {
+    return this._http.get(this.url + "/userContact/"+ id, { responseType: "text" });
+  }
+
+  //List contact by medecin
+  getContactByMedecin(id:any) {
+    return this._http.get(this.url + "/medecinContact/"+ id, { responseType: "text" });
+  }
+
+    // suprimer
+    deleteContact(id: any){
+      return this._http.delete(this.url + '/suprimerContact/'+id, {responseType:'text'});
+    }
   //--------------////////---------------------ajouterContact
 
 

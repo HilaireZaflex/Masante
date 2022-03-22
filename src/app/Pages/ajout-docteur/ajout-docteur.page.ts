@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Contact } from 'src/app/model/contact';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -10,16 +11,18 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./ajout-docteur.page.scss'],
 })
 export class AjoutDocteurPage implements OnInit {
-  medecin: any;
+
+  contact = new Contact();
+
+    medecin: any;
     id:any;
-    etat:any;
-    medeci:any;
     medeciMobile:any;
     utilisateur:any;
-  InfoUser: any;
-contact : any;
-  donnee: any;
-  data: any;
+    InfoUser: any;
+    mobile: any;
+    newContact: any;
+
+    filterTerm: string;
   constructor(
     private service : UserService,
     private navCrr : NavController,
@@ -39,33 +42,38 @@ contact : any;
     })
   }
 
-  async SaveData(forms:NgForm){
-
-    this.utilisateur = this.InfoUser;
-    this.medeci=forms.value['mobile'];
-    this.etat = 'ACTIVE'
-    if(forms.value['mobile'] !== this.medecin.mobile){
-      console.log('Erorr')
-    }else{
-      this.medeci= this.medecin;
-    }
-
-    this.contact.etat=this.etat;
+  async ajoutContact(forms:NgForm){
+    this.mobile=forms.value['mobile'];
+    console.log("saisie",this.mobile);
+    // ====================
+        for(let i of this.medecin){
+         i.mobile;
+         if(i.mobile == this.mobile){
+           this.medeciMobile = {
+            Type:i.Type,
+            id: i.id
+           }
+         }else{
+           console.log("pas dans notre base");
+           
+         }
+        }
+    // ====================
+    this.utilisateur ={
+      Type:this.InfoUser.Type,
+      id: this.InfoUser.id
+    } 
+    
+    // ====================
+    this.contact.mobile = this.mobile;
     this.contact.utilisateur=this.utilisateur;
-    this.contact.medecin.id=this.medeci;
+    this.contact.medecin=this.medeciMobile;
+  
     this.service.ajoutContact(this.contact).subscribe((data:any)=>{
-      this.donnee=data;
-      console.log("salut"+ data)
-      // this.router.navigate(['login'])
+      this.newContact = data;
+      console.log("New conctact", this.newContact);
+      
       this.navCrr.navigateForward(['docteur']);
     })
-
-  
-}
-  update(){
-    this.service.modifierProfil(this.id, this.data).subscribe((data:any)=>{
-      // this.router.navigate(['liste-maladie']);
-    })
-
   }
 }

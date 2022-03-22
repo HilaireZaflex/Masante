@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { AjoutDocteurPageRoutingModule } from './ajout-docteur-routing.module';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AjoutDocteurPage } from './ajout-docteur.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { AjoutDocteurPage } from './ajout-docteur.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    AjoutDocteurPageRoutingModule
+    AjoutDocteurPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [AjoutDocteurPage]
 })

@@ -26,7 +26,7 @@
       <ion-label>Valeur</ion-label>
       <ion-label>Resultat</ion-label>
     </ion-item>
-    <ion-item class="corp" *ngFor="let items of user | filter:filterTerm | paginate: { itemsPerPage: 6, currentPage: cp }">
+    <ion-item [routerLink]="['/data-details',items?.id]" class="corp" *ngFor="let items of user | filter:filterTerm | paginate: { itemsPerPage: 6, currentPage: cp }">
       <ion-label>{{items?.date | date: 'dd MMM yyyy'}}</ion-label>
       <ion-label>{{items?.valeurA}} <i *ngIf="items?.valeurB" style="color: rgb(175, 175, 175);">|</i> {{items?.valeurB}} <i style="color: rgb(175, 175, 175);"></i> {{items?.valeurC}}</ion-label>
       <ion-label>{{items?.resultat}}</ion-label>

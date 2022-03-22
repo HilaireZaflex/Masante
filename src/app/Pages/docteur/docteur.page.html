@@ -37,53 +37,83 @@
     <div class="row" >
       
     </div>
+
+        <!-- Utilisateur -->
+        <ion-list >
+          <ion-item-sliding *ngFor="let items of userContact">
     <ion-item *ngIf="InfoUser.Type==='UTILISATEUR'">
       
       
       <div class="container">
-        <div class="row">
+        <div class="row" >
           <div class="col-md-auto img">
            
-              <img  src="../../../assets/iconImage/doctor.png" />
+            <div [routerLink]="['/details',items.medecin.id]" class="col-md-auto img "><img src="../../../assets/iconImage/doctor.png"/></div>
          
           </div>
           <div class="col">
-            <ion-label>
-              <h3><b>Dr Hilaire Zaflex</b></h3>
-              <p> Sotuba</p>
-              <p> Neurologue</p>
-              <p>83092295</p>
-              
-            </ion-label>
-            <button routerLink="/messages" class="form-btn">
-              Contactez
-             </button>
+            <a href="tel:{{items.medecin.mobile}}">
+              <ion-label>
+                <h3><b>{{items.medecin.nomComplet}}</b></h3>
+                <p>{{items.medecin.mobile}}</p>
+              </ion-label>
+            </a>
           </div>
         </div>
       </div>
+
+      
     </ion-item>
+    <ion-item-options side="start">
+      <ion-item-option  [routerLink]="['/details',items.medecin.id]" color="primary">
+        <ion-icon name="eye"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="end">
+      <ion-item-option (click)="showAlert(items.id)" color="primary">
+        <ion-icon name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+      
+      <!-- Medecin -->
+      <ion-list >
+        <ion-item-sliding *ngFor="let items of medecinContact" >
     <ion-item *ngIf="InfoUser.Type==='MEDECIN'">
       
       
       <div class="container">
-        <div class="row">
-          <div class="col-md-auto img">
-           
-              <img  src="../../../assets/iconImage/account.png" />
+        <div class="row" >
+
+            <div [routerLink]="['/details',items.utilisateur.id]" class="col-md-auto img" ><img src="../../../assets/iconImage/account.png"/></div>
+
          
-          </div>
           <div class="col">
-            <!-- <ion-label>
-              <h3><b>Dr Hilaire Zaflex</b></h3>
-              <p>83092295</p>
-              
-            </ion-label> -->
-            <button routerLink="/messages" class="form-btn">
-              Contactez
-             </button>
+            <a href="tel:{{items.utilisateur.mobile}}">
+              <ion-label>
+                <h3><b>{{items.utilisateur.nomComplet}}</b></h3>
+                <p>{{items.utilisateur.mobile}}</p>
+              </ion-label>
+            </a>
+            
           </div>
         </div>
       </div>
     </ion-item>
+    <ion-item-options side="start">
+      <ion-item-option  [routerLink]="['/details',items.utilisateur.id]" color="primary">
+        <ion-icon name="eye"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="end">
+      <ion-item-option (click)="showAlert(items.id)" color="primary">
+        <ion-icon name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+<!-- ======================= -->
+
   </div>
   </ion-content>

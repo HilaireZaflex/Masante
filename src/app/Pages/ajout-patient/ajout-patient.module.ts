@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AjoutPatientPageRoutingModule } from './ajout-patient-routing.module';
 
 import { AjoutPatientPage } from './ajout-patient.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AjoutPatientPageRoutingModule
+    AjoutPatientPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [AjoutPatientPage]
 })

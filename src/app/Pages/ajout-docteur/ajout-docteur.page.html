@@ -10,9 +10,9 @@
 <ion-content>
   <div class="main_content_div">
     <div class="content_div animated bounceInUp" >
-      <form #user="ngForm" (ngSubmit)="SaveData(contact)" novalidate autocomplete="nope" class="ion-padding">
+      <form #contact="ngForm" (ngSubmit)="ajoutContact(contact)" novalidate autocomplete="nope" class="ion-padding">
       <div class="wrap-input">
-        <input class="input" type="text" name="mobile" ngModel placeholder="Email ou Téléphone" ngModel required autocomplete>
+        <input class="input" type="text" name="mobile" title="Veillez renseigner le numero du patient" placeholder="Téléphone" [(ngModel)]="filterTerm" ngModel required autocomplete>
         </div>
         <div class="container-form-btn">
           <button type="submit" class="form-btn custom-font">
@@ -20,20 +20,22 @@
           </button>
         </div>
       </form>
-
-
-        <ion-card *ngFor="let item of medecin">
-     <ion-item >
-       <ion-label>{{item?.nomComplet}}</ion-label>
-       </ion-item>
-  
-       
-        <ion-label>{{item?.specialite}} </ion-label>
-        <ion-label>{{item?.email}} &nbsp; {{item?.mobile}}</ion-label> 
-        
-     
+        <ion-card>
+     <ion-item *ngFor="let items of medecin | filter:filterTerm"><div class="container">
+      <div class="row">
+          <div class="col-md-auto img"><img src="../../../assets/iconImage/doctor.png"/></div>
+        <div class="col">
+          <ion-label >
+            <h3><b>{{items.nomComplet}}</b></h3>
+            <p> <span>{{items.specialite}}</span> <br> {{items.mobile}}</p>
+          </ion-label>
+        </div>
+      </div>
+    </div></ion-item>
         </ion-card>
     </div>
     
   </div>
-  </ion-content>
+
+<!-- ==================================== -->
+  

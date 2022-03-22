@@ -66,32 +66,24 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: 'pharmacie',
-    loadChildren: () => import('./Pages/pharmacie/pharmacie.module').then( m => m.PharmaciePageModule)
-  },
-  {
-    path: 'manger',
-    loadChildren: () => import('./Pages/manger/manger.module').then( m => m.MangerPageModule)
+    path: 'data-details/:id',
+    loadChildren: () => import('./Pages/data-details/data-details.module').then( m => m.DataDetailsPageModule)
   },
   {
     path: 'apropos',
     loadChildren: () => import('./Pages/apropos/apropos.module').then( m => m.AproposPageModule)
   },
   {
-    path: 'clinique',
-    loadChildren: () => import('./Pages/clinique/clinique.module').then( m => m.CliniquePageModule)
+    path: 'password',
+    loadChildren: () => import('./Pages/password/password.module').then( m => m.PasswordPageModule)
   },
   {
-    path: 'gestes',
-    loadChildren: () => import('./Pages/gestes/gestes.module').then( m => m.GestesPageModule)
+    path: 'conseil/:id',
+    loadChildren: () => import('./Pages/conseil/conseil.module').then( m => m.ConseilPageModule)
   },
   {
-    path: 'profilephotooption',
-    loadChildren: () => import('./Pages/profilephotooption/profilephotooption.module').then( m => m.ProfilephotooptionPageModule)
-  },
-  {
-    path: 'messages',
-    loadChildren: () => import('./Pages/messages/messages.module').then( m => m.MessagesPageModule)
+    path: 'bilan',
+    loadChildren: () => import('./Pages/bilan/bilan.module').then( m => m.BilanPageModule)
   },
   {
     path: 'dashboard',
@@ -108,6 +100,10 @@ const routes: Routes = [
   {
     path: 'data',
     loadChildren: () => import('./Pages/data/data.module').then( m => m.DataPageModule)
+  },
+  {
+    path: 'details/:id',
+    loadChildren: () => import('./Pages/details/details.module').then( m => m.DetailsPageModule)
   },
 ];
 
