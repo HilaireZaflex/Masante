@@ -20,6 +20,6 @@ public class Utilisateur extends Compte {
     @ManyToOne
     private Admin admin;
 
-    @OneToMany (mappedBy = "utilisateur")
-    private List <Contact> contacts;
+//    @OneToMany (mappedBy = "utilisateur")
+//    private List <Contact> contacts;
 }

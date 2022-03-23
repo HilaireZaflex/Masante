@@ -41,6 +41,7 @@ public class CompteController {
     //mis a jour (modifier) compte
     @PutMapping(path ="/modifier/{id}" )
     public @ResponseBody ResponseEntity<?> modifier(@RequestBody Compte compte,@PathVariable(name = "id") Long id){
+        System.out.println(id);
         return  new ResponseEntity<>(compteService.updateCompte(id, compte), HttpStatus.OK);
     }
 
@@ -67,6 +68,7 @@ public class CompteController {
     //Modifier mot de passe
     @PutMapping(path = "modifierMotDePasse/{id}")
     public String modifierMotDePasse(@RequestBody Compte compte,@PathVariable Long id){
+        System.out.println("modifier ");
         this.compteService.modifierMotDePasse(id, compte);
         return "Mot de passse changer avec succes";
     }

@@ -3,7 +3,6 @@ package com.example.masante.contact.controller;
 import com.example.masante.contact.entity.Contact;
 import com.example.masante.contact.service.ContactService;
 import com.example.masante.enumeration.Etat;
-import com.example.masante.specialite.entity.Specialite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -89,5 +88,17 @@ public class ContactController {
     public String enableContact(@PathVariable("id")Long id){
         this.contactService.enableContact(id);
         return " Contact Activer";
+    }
+
+    // tout les Contact de l'utilisateur
+    @GetMapping(path = "/userContact/{id}")
+    public List<Contact> userContact(@PathVariable("id")Long id){
+        return this.contactService.userContact(id);
+    }
+
+    // tout les Contact de medecin
+    @GetMapping(path = "/medecinContact/{id}")
+    public List<Contact> medecinContact(@PathVariable("id")Long id){
+        return this.contactService.medecinContact(id);
     }
 }

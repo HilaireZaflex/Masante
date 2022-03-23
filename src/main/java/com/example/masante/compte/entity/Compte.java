@@ -22,8 +22,10 @@ import java.time.LocalDate;
                 @JsonSubTypes.Type(name = "ADMIN", value = Admin.class),
                 @JsonSubTypes.Type(name = "MEDECIN", value = Medecin.class),
                 @JsonSubTypes.Type(name = "UTILISATEUR", value = Utilisateur.class)
+
         }
 )
+
 public abstract class Compte {
 
     @Id

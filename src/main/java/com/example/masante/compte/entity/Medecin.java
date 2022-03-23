@@ -22,6 +22,6 @@ public class Medecin extends Compte {
     @ManyToOne
     private Admin admin;
 
-    @OneToMany (mappedBy = "medecin")
-    private List <Contact> contacts;
+//    @OneToMany (mappedBy = "medecin")
+//    private List <Contact> contacts;
 }

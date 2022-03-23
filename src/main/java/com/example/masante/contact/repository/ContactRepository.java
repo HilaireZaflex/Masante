@@ -34,4 +34,11 @@ public interface ContactRepository extends JpaRepository <Contact, Long> {
     @Query(value = "UPDATE Contact SET etat='ACTIVE' WHERE id=:id")
     Void enableContact(Long id);
 
+    // Contact de l'utilisateur
+    @Query("SELECT user FROM Contact user WHERE user.utilisateur.id =:id")
+    List <Contact> userContact(long id);
+
+    // Contact de Medecin
+    @Query("SELECT medec FROM Contact medec WHERE medec.medecin.id =:id")
+    List <Contact> medecinContact(long id);
 }

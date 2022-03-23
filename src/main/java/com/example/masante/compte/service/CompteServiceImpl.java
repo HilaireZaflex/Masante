@@ -53,6 +53,15 @@ public class CompteServiceImpl implements CompteService{
     //mis a jour (modifier) compte
     @Override
     public Compte updateCompte(Long id, Compte compte) {
+        LocalDate maintenant = LocalDate.now();
+        int ageA = maintenant.getYear() - compte.getDateDeNaissance().getYear();
+        if ((compte.getDateDeNaissance().getMonthValue() > maintenant.getMonthValue()
+                || (compte.getDateDeNaissance().getMonthValue() == maintenant.getMonthValue())
+                && (compte.getDateDeNaissance().getDayOfMonth() > maintenant.getDayOfMonth())))
+        {
+            ageA--;
+        }
+        compte.setAge(ageA);
         return compteRepository.save(compte);
     }
 

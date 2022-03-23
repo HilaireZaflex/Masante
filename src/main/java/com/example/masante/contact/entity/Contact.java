@@ -21,14 +21,17 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
 
+    @Column
+    private String mobile;
+
+    @Enumerated(EnumType.STRING)
     private Etat etat = Etat.ACTIVE;
 
     @ManyToOne
     private Medecin medecin;
 
-
-
     @ManyToOne
     private Utilisateur utilisateur;
 
 }
+

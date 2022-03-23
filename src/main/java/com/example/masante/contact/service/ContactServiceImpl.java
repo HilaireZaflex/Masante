@@ -6,6 +6,7 @@ import com.example.masante.enumeration.Etat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
@@ -79,4 +80,17 @@ public class ContactServiceImpl implements ContactService{
         this.contactRepository.enableContact(id);
         return "Activer";
     }
+
+    /**==================== contact==================*/
+    @Override
+    public List<Contact> userContact(Long id) {
+        return contactRepository.userContact(id);
+    }
+
+    @Override
+    public List<Contact> medecinContact(Long id) {
+        return contactRepository.medecinContact(id);
+    }
+
+
 }

@@ -22,5 +22,7 @@ public interface ContactService {
     String disableContact (Long id);     //methode pour desactiver une Contact
     String enableContact (Long id);        //methode pour activer une Contact
 
-
+/**==================== contact==================*/
+    List <Contact> userContact(Long id);
+    List <Contact> medecinContact(Long id);
 }
